@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Merriweather-Regular.ttf";
+  src: url(./assets/Fonts/Merriweather-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.popUp {
+  display: none;
+}
+
+/* LAYOUT GENERAL */
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header {
+  position: relative;
+  align-self: flex-start;
+  width: 100vw;
+  border: 3px solid red;
+}
+
+main {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  height: 90vh;
+  width: 100vw;
+}
+
+/* COOKIE */
+
+#zoneCookie {
+  position: relative;
+  justify-items: start;
+  width: 50vw;
+  height: 75vh;
+  background-color: aqua;
+}
+
+/* ZONE DROITE */
+
+#zoneInfos {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  justify-items: end;
+  width: 50vw;
+  height: 75vh;
+  background-color: aquamarine;
+}
+
+.multiplierShop {
+  background-color: #174883;
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 18px;
+  max-height: 95px;
+  max-width: 630px;
+  align-content: center;
+}
+
+.multiplierShop button {
+  width: 90px;
+  height: 90px;
+  margin: 5px;
+}
+
+.scoreDisplay {
+  font-family: "Merriweather-Regular.ttf";
+  font-size: 4rem;
+}
+
+/* BOTTOM SHOP */
+
+.autoclickShop {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 18vh;
+  bottom: 25px;
+  background-color: #174883;
+}
+
+.autoclickShop button {
+  width: 130px;
+  height: 130px;
+  margin: auto 15px;
+}
+
+/* FOOTER */
+
+footer {
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  margin: 0 auto;
+  bottom: 0px;
+  background-color: #174883;
+  align-content: center;
+}
+legend {
+  color: white;
+}
+
+legend a {
+  color: #93c6e0;
+}
