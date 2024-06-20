@@ -18,3 +18,8 @@ cookieBtn.addEventListener("click", () => {
     //changer la valeur du score
     updateScoreDisplay();
 })
+
+// fonction pour enlever la class active d'un bouton et y mettre la classe passive
+function disableButton(buttonName) {
+    buttonName.classList.remove(a)
+}
