@@ -10,8 +10,14 @@
       rel="stylesheet"
       href="style.css"
     />
-    <script src="functions.js"></script>
-    <script src="main.js"></script>
+    <script
+      src="functions.js"
+      defer
+    ></script>
+    <script
+      src="main.js"
+      defer
+    ></script>
     <title>Cookie Monster Clicker</title>
   </head>
   <body>
@@ -27,15 +33,27 @@
           class="bonus"
           disabled
         ></button>
-        <button class="cookieBtn"><img src="./assets/cookie01.webp" /></button>
+        <button class="cookieBtn">
+          <img
+            src="./assets/cookie01.webp"
+            alt="Cookie"
+          />
+        </button>
       </section>
 
       <section id="zoneInfos">
         <article class="multiplierShop">
           <button
-            class="click"
+            id="clickMultiplier"
             type="button"
-          ></button>
+          >
+            <p id="costMultiplierDisplay"></p>
+            <img
+              src=""
+              alt="iconMultiplier"
+            />
+            <p id="countMultiplierDisplay"></p>
+          </button>
           <button
             class="autoclick"
             type="button"
