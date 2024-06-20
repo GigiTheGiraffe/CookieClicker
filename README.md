@@ -24,13 +24,13 @@ Cookie Clicker est un jeu où le joueur clique sur un cookie géant pour gagner 
      
 ## Qui
 
-Juan Github:[ JuanAndresImb](https://github.com/JuanAndresImb)      
+- Juan Github:[ JuanAndresImb](https://github.com/JuanAndresImb)      
 Juan, passionné par les nouvelles technologies et s'intéresse       particulièrement aux technologies digitales décentralisées.     
 
-Loïc GitHub: [GigiTheGiraffe](https://github.com/GigiTheGiraffe)        
+- Loïc GitHub: [GigiTheGiraffe](https://github.com/GigiTheGiraffe)        
 Loïc, jeune développeur en train d’apprendre les technologies du Web chez BeCode.     
 
-Karl GitHub: [KarVand](https://github.com/KarlVand)       
+- Karl GitHub: [KarVand](https://github.com/KarlVand)       
 Intéressé et intrigué par toutes les possibilités, je me suis laissé happé !        
 
 ## Quand      
