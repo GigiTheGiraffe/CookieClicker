@@ -10,8 +10,8 @@
       rel="stylesheet"
       href="style.css"
     />
-    <script src="functions.js"></script>
-    <script src="main.js"></script>
+    <script src="functions.js" defer></script>
+    <script src="main.js" defer></script>
     <title>Cookie Monster Clicker</title>
   </head>
   <body>
@@ -20,26 +20,46 @@
       <h1>La patisserie de <span class="nomPatisserie"></span></h1>
     </header>
 
-    <section class="popUp"><input /></section>
+    <section class="popUp"><input />
+        <p></p>
+        <input type="text" name="" size="15">
+    </section>
     <main>
       <section id="zoneCookie">
         <button
           class="bonus"
           disabled
         ></button>
-        <button class="cookieBtn"><img src="./assets/cookie01.webp" /></button>
+        <button class="cookieBtn">
+          <img
+            src="./assets/cookie01.webp"
+            alt="Cookie"
+          />
+        </button>
       </section>
 
       <section id="zoneInfos">
         <article class="multiplierShop">
           <button
-            class="click"
+            id="clickMultiplier"
             type="button"
-          ></button>
-          <button
+            class ="tooltip"
+          >
+          <article class="tooltiptext">
+            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+          </article>
+            <p id="costMultiplierDisplay">15</p>
+            <img
+              src="./assets/multiplierCookieMonster.webp"
+              alt="iconMultiplier"
+            />
+            <p id="countMultiplierDisplay">0</p>
+          </button>
+          <button id ="bonusBtn"
             class="autoclick"
             type="button"
-          ></button>
+          >
+          Bouton bonus</button>
           <button
             class="autoclick"
             type="button"
@@ -57,11 +77,12 @@
             type="button"
           ></button>
         </article>
-        <article class="scoreDisplay">Total : 958877</article>
+        <article class="scoreDisplay">Total : 0</article>
       </section>
 
       <section class="autoclickShop">
-        <button type="button"></button>
+        <button id="autoclickerBtn" type="button"
+      ><p id = "costAutoclickerDisplay">15</p> <p id = "countAutoclickerDisplay">0</p></p></button>
         <button type="button"></button>
         <button type="button"></button>
         <button type="button"></button>
@@ -72,23 +93,15 @@
     <footer>
       <legend>
         Ce Cookie Clicker a ete crée par
-        <a
-          href="https://github.com/JuanAndresImb"
-          target="_blank"
+        <a href="https://github.com/JuanAndresImb" target="_blank"
           >JuanAndresImb</a
         >
         ,
-        <a
-          href="https://github.com/GigiTheGiraffe"
-          target="_blank"
+        <a href="https://github.com/GigiTheGiraffe" target="_blank"
           >GigiTheGiraffe</a
         >
         &
-        <a
-          href="https://github.com/KarlVand"
-          target="_blank"
-          >KarlVand</a
-        >.
+        <a href="https://github.com/KarlVand" target="_blank">KarlVand</a>.
         <a
           href="https://github.com/GigiTheGiraffe/CookieClicker/tree/main"
           target="_blank"
