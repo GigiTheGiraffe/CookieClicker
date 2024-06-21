@@ -208,3 +208,26 @@ legend a {
 button:disabled { 
   opacity : 0.3;
 }
+
+/* TOOLTIP */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  padding: 10px;
+  background-color: #FFFFBE;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+  bottom: 100px; 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
