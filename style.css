@@ -107,7 +107,8 @@ main {
   white-space: nowrap;
 }
 
-#clickMultiplier {
+/* MULTIPLIER BUTTONS */
+.multiplierShop button {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -118,11 +119,19 @@ main {
   height: 90px;
   background-color: rgb(1, 48, 48);
 }
-
-button:disabled {
+.multiplierShop button img {
+  position: relative;
+  margin: auto;
+  max-height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  justify-self: start;
+}
+.multiplierShop button:disabled {
   opacity: 0.5;
 }
 
+/* BUTTONS CONTENT */
 #costMultiplierDisplay {
   position: relative;
   font-family: "Merriweather-Regular.ttf", serif;
@@ -133,15 +142,6 @@ button:disabled {
   text-align: end;
 }
 
-#clickMultiplier img {
-  position: relative;
-  margin: auto;
-  max-height: 70px;
-  -o-object-fit: cover;
-     object-fit: cover;
-  justify-self: start;
-}
-
 #countMultiplierDisplay {
   position: absolute;
   font-family: "Merriweather-Regular.ttf", serif;
@@ -149,7 +149,7 @@ button:disabled {
   font-size: 2rem;
   bottom: 0;
   color: yellow;
-  width: 100%;
+  width: 90%;
   margin: 0;
   text-align: end;
 }
