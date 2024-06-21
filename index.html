@@ -2,10 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="functions.js"></script>
-    <script src="main.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="style.css"
+    />
+    <script src="functions.js" defer></script>
+    <script src="main.js" defer></script>
     <title>Cookie Monster Clicker</title>
   </head>
   <body>
@@ -21,24 +27,61 @@
     </section>
     <main>
       <section id="zoneCookie">
-        <button class="bonus" disabled></button>
-        <button class="cookieBtn"><img src="./assets/cookie01.webp" /></button>
+        <button
+          class="bonus"
+          disabled
+        ></button>
+        <button class="cookieBtn">
+          <img
+            src="./assets/cookie01.webp"
+            alt="Cookie"
+          />
+        </button>
       </section>
 
       <section id="zoneInfos">
         <article class="multiplierShop">
-          <button class="click" type="button"></button>
-          <button class="autoclick" type="button"></button>
-          <button class="autoclick" type="button"></button>
-          <button class="autoclick" type="button"></button>
-          <button class="autoclick" type="button"></button>
-          <button class="autoclick" type="button"></button>
+          <button
+            id="clickMultiplier"
+            type="button"
+            class ="tooltip"
+          >
+          <article class="tooltiptext">
+            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+          </article>
+            <p id="costMultiplierDisplay">15</p>
+            <img
+              src="./assets/multiplierCookieMonster.webp"
+              alt="iconMultiplier"
+            />
+            <p id="countMultiplierDisplay">0</p>
+          </button>
+          <button
+            class="autoclick"
+            type="button"
+          ></button>
+          <button
+            class="autoclick"
+            type="button"
+          ></button>
+          <button
+            class="autoclick"
+            type="button"
+          ></button>
+          <button
+            class="autoclick"
+            type="button"
+          ></button>
+          <button
+            class="autoclick"
+            type="button"
+          ></button>
         </article>
         <article class="scoreDisplay">Total : 958877</article>
       </section>
 
       <section class="autoclickShop">
-        <button type="button"></button>
+        <button type="button" title="Grand Cookie: Plus le cookie est gros, plus Cookie Monster clique rapidement. Gourmandise au service de la productivité"></button>
         <button type="button"></button>
         <button type="button"></button>
         <button type="button"></button>
