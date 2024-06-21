@@ -10,14 +10,8 @@
       rel="stylesheet"
       href="style.css"
     />
-    <script
-      src="functions.js"
-      defer
-    ></script>
-    <script
-      src="main.js"
-      defer
-    ></script>
+    <script src="functions.js" defer></script>
+    <script src="main.js" defer></script>
     <title>Cookie Monster Clicker</title>
   </head>
   <body>
@@ -26,7 +20,10 @@
       <h1>La patisserie de <span class="nomPatisserie"></span></h1>
     </header>
 
-    <section class="popUp"><input /></section>
+    <section class="popUp"><input />
+        <p></p>
+        <input type="text" name="" size="15">
+    </section>
     <main>
       <section id="zoneCookie">
         <button
@@ -39,14 +36,123 @@
             alt="Cookie"
           />
         </button>
+        <button id ="bonusBtn"
+            class="autoclick"
+            type="button"
+          >
+          Bouton bonus</button>
       </section>
 
       <section id="zoneInfos">
         <article class="multiplierShop">
+
+         <!-- MULTIPLIER 1 COOKIE CLICK -->
+
           <button
             id="clickMultiplier"
             type="button"
+            class ="tooltip"
           >
+          <!-- <article class="tooltiptext">
+            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+          </article> -->
+
+            <p id="costMultiplierDisplay">15</p>
+            <img
+              src="assets/multiplierCookieClicker.webp"
+              alt="iconMultiplier"
+            />
+            <p id="countMultiplierDisplay">0</p>
+          </button>
+          
+          <!-- MULTIPLIER 2 AUTO CLICK -->
+
+          <button
+            id="elmoMultiplier"
+            type="button"
+            class ="tooltip"
+          >
+          
+          <!-- <article class="tooltiptext">
+            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+          </article> -->
+            
+          <p id="costMultiplierDisplay">15</p>
+            <img
+              src="assets/multiplierElmoAutoclicker.webp"
+              alt="iconMultiplier"
+            />
+            <p id="countMultiplierDisplay">0</p>
+          </button>
+
+          <!-- MULTIPLIER 3 AUTO CLICK -->
+
+          <button
+          id="birdMultiplier"
+          type="button"
+          class ="tooltip"
+        >
+        <!-- <article class="tooltiptext">
+          <p>birdie birdie</p>
+        </article> -->
+
+          <p id="costMultiplierDisplay">15</p>
+          <img
+            src="./assets/multiplierCookieMonster.webp"
+            alt="iconMultiplier"
+          />
+          <p id="countMultiplierDisplay">0</p>
+        </button>
+
+        <!-- MULTIPLIER 4 AUTO CLICK -->
+
+        <button
+        id="oscarMultiplier"
+        type="button"
+        class ="tooltip"
+      >
+      <!-- <article class="tooltiptext">
+        <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+      </article> -->
+
+        <p id="costMultiplierDisplay">15</p>
+        <img
+          src="assets/multiplierOscarAutoclicker.webp"
+          alt="iconMultiplier"
+        />
+        <p id="countMultiplierDisplay">0</p>
+      </button>
+
+      <!-- MULTIPLIER 5 AUTO CLICK -->
+
+      <button
+        id="groverMultiplier"
+        type="button"
+        class ="tooltip"
+    >
+    <!-- <article class="tooltiptext">
+      <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+    </article> -->
+
+      <p id="costMultiplierDisplay">15</p>
+      <img 
+        src=""
+        alt="iconMultiplier"
+      />
+      <p id="countMultiplierDisplay">0</p>
+    </button>
+
+    <!-- MULTIPLIER 6 AUTO CLICK -->
+
+      <button
+        id="ernieMultiplier"
+        type="button"
+        class ="tooltip"
+        >
+          <!-- <article class="tooltiptext">
+            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
+          </article> -->
+
             <p id="costMultiplierDisplay">15</p>
             <img
               src="assets/multiplierCookieClicker.webp"
@@ -55,104 +161,61 @@
             <p id="countMultiplierDisplay">0</p>
           </button>
 
-          <button
-            id="elmoMultiplier"
-            type="button"
-          >
-            <p id="costMultiplierDisplay">15</p>
-            <img
-              src="assets/multiplierElmoAutoclicker.webp"
-              alt="iconMultiplier"
-            />
-            <p id="countMultiplierDisplay">0</p>
-            >
-          </button>
-
-          <button
-            id="birdMultiplier"
-            type="button"
-            disabled
-          >
-            <p id="costMultiplierDisplay">15</p>
-            <img
-              src="./assets/multiplierCookieMonster.webp"
-              alt="iconMultiplier"
-            />
-            <p id="countMultiplierDisplay">0</p>
-            >
-          </button>
-
-          <button
-            id="oscarMultiplier"
-            type="button"
-          >
-            <p id="costMultiplierDisplay">15</p>
-            <img
-              src="assets/multiplierOscarAutoclicker.webp"
-              alt="iconMultiplier"
-            />
-            <p id="countMultiplierDisplay">0</p>
-            >
-          </button>
-
-          <button
-            id="groverMultiplier"
-            type="button"
-          >
-            <p id="costMultiplierDisplay">15</p>
-            <img
-              src="./assets/multiplierCookieMonster.webp"
-              alt="iconMultiplier"
-            />
-            <p id="countMultiplierDisplay">0</p>
-            >
-          </button>
-
-          <button
-            id="ernieMultiplier"
-            type="button"
-          >
-            <p id="costMultiplierDisplay">15</p>
-            <img
-              src="./assets/multiplierCookieMonster.webp"
-              alt="iconMultiplier"
-            />
-            <p id="countMultiplierDisplay">0</p>
-            >
-          </button>
+  <!-- SCORE DISPLAY ZONE -->
+      <section>
         </article>
-        <article class="scoreDisplay">Total : 958877</article>
+        <article class="scoreDisplay">Total : 0</article>
+        <article class="clickPerSecondDisplay">0 cookies per second</article>
       </section>
 
+  <!-- AUTO CLICK SHOP ZONE-->
+
       <section class="autoclickShop">
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
-        <button type="button"></button>
+        <button id="autoclickerBtn" type="button">
+          <p id ="costAutoclickerDisplay">15</p>
+          <img src="assets/elmoAutoclickerImage.webp" alt="autoclicker1"> 
+          <p id="countAutoclickerDisplay">0</p>
+        </button>
+
+        <button id="autoclickerBtn"  type="button">
+          <p id ="costAutoclickerDisplay" >15</p>
+          <img src="assets/birdieAutoclickerImage.webp" alt="autoclicker2">  
+          <p id="countAutoclickerDisplay">0</p>
+        </button>
+
+        <button id="autoclickerBtn"  type="button">
+          <p id ="costAutoclickerDisplay">15</p>
+          <img src="assets/oscarAutoclickerImage.webp" alt="autoclicker3">  
+          <p id="countAutoclickerDisplay">0</p>
+        </button>
+
+        <button id="autoclickerBtn"  type="button">
+          <p id ="costAutoclickerDisplay">15</p> 
+          <img src="assets/groverAutoclickerImage.webp" alt="autoclicker4"> 
+          <p id="countAutoclickerDisplay">0</p>
+        </button>
+
+        <button id="autoclickerBtn"  type="button">
+          <p id ="costAutoclickerDisplay">15</p>
+          <img src="assets/ernieAutoclickerImage.webp" alt="autoclicker5">  
+          <p id="countAutoclickerDisplay">0</p>
+        </button>
+        
       </section>
     </main>
 
     <footer>
       <legend>
         Ce Cookie Clicker a ete crée par
-        <a
-          href="https://github.com/JuanAndresImb"
-          target="_blank"
+        <a href="https://github.com/JuanAndresImb" target="_blank"
           >JuanAndresImb</a
         >
         ,
-        <a
-          href="https://github.com/GigiTheGiraffe"
-          target="_blank"
+        <a href="https://github.com/GigiTheGiraffe" target="_blank"
           >GigiTheGiraffe</a
         >
         &
-        <a
-          href="https://github.com/KarlVand"
-          target="_blank"
-          >KarlVand</a
-        >.
+        <a href="https://github.com/KarlVand" target="_blank">KarlVand</a>.
         <a
           href="https://github.com/GigiTheGiraffe/CookieClicker/tree/main"
           target="_blank"

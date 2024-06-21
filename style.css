@@ -12,8 +12,8 @@
   font-style: normal;
   font-display: swap;
 }
-/* SASS VARIABLES */
-/* ############################################### */
+/* SASS GLOBAL VARIABLES */
+/*###############################################*/
 .popUp {
   display: none;
 }
@@ -93,6 +93,7 @@ main {
   height: 75vh;
 }
 
+/* MULTIPLIER SHOP SASS */
 /* MULTIPLIER SHOP */
 .multiplierShop {
   position: relative;
@@ -106,8 +107,6 @@ main {
   max-width: 650px;
   white-space: nowrap;
 }
-
-/* MULTIPLIER BUTTONS */
 .multiplierShop button {
   position: relative;
   display: flex;
@@ -130,9 +129,15 @@ main {
 .multiplierShop button:disabled {
   opacity: 0.5;
 }
-
-/* BUTTONS CONTENT */
-#costMultiplierDisplay {
+.multiplierShop img {
+  position: relative;
+  margin: auto;
+  max-height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  justify-self: start;
+}
+.multiplierShop #costMultiplierDisplay {
   position: relative;
   font-family: "Merriweather-Regular.ttf", serif;
   font-weight: 900;
@@ -141,8 +146,7 @@ main {
   margin: 0;
   text-align: end;
 }
-
-#countMultiplierDisplay {
+.multiplierShop #countMultiplierDisplay {
   position: absolute;
   font-family: "Merriweather-Regular.ttf", serif;
   font-weight: 900;
@@ -152,13 +156,6 @@ main {
   width: 90%;
   margin: 0;
   text-align: end;
-}
-
-.autoclick {
-  position: relative;
-  margin: 0 auto;
-  min-width: 90px;
-  min-height: 90px;
 }
 
 /* SCORE DISPLAY */
@@ -171,7 +168,17 @@ main {
   white-space: nowrap;
 }
 
-/* BOTTOM SHOP */
+.clickPerSecondDisplay {
+  position: relative;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-size: 1.5rem;
+  margin-left: 27%;
+  margin-top: 0;
+  white-space: nowrap;
+}
+
+/* AUTO CLICK SHOP SASS DESIGN */
+/* AUTO CLICK SHOP SASS DISPLAY */
 .autoclickShop {
   position: absolute;
   display: flex;
@@ -181,11 +188,44 @@ main {
   bottom: 25px;
   background-color: #174883;
 }
-
 .autoclickShop button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  -o-object-fit: cover;
+     object-fit: cover;
   width: 130px;
   height: 130px;
   margin: auto 15px;
+  background-color: rgb(1, 48, 48);
+}
+.autoclickShop #costAutoclickerDisplay {
+  position: relative;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-weight: 900;
+  color: white;
+  width: 100%;
+  margin: 0;
+  text-align: end;
+}
+.autoclickShop image {
+  position: relative;
+  margin: auto;
+  max-height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  justify-self: start;
+}
+.autoclickShop #countAutoclickerDisplay {
+  position: absolute;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-weight: 900;
+  font-size: 2rem;
+  bottom: 0;
+  color: yellow;
+  width: 90%;
+  margin: 0;
+  text-align: end;
 }
 
 /* FOOTER */
@@ -201,6 +241,7 @@ footer {
 
 legend {
   color: white;
+  text-align: center;
 }
 
 legend a {
