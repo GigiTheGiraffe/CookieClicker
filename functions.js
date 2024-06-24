@@ -81,7 +81,7 @@ function toggleButton(button, image, source, activate) {
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
   return Math.floor(cost * 1.15);
-}
+};
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
   if (score >= cost) {
@@ -91,13 +91,13 @@ function checkScore(cost) {
   else {
     return false
   }
-}
+};
 //fonction pour ajouter à la var cookieSecond et l'afficher CHANGER LE COOKIESECOND += CLICKVALUE PAR LA NOUVELLE ECONOMIE DE JUAN QUAND DISPO
 function cookieSecondAddShow() {
   cookieSecond += clickValue;
   console.log(cookieSecond);
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
-}
+};
 //Comportement du bouton multiplicateur pour le click
 ClickMultiplierBtn.addEventListener("click", function () {
   bool = checkScore(costMultipliers[0]);
@@ -277,7 +277,3 @@ bonusBtn.addEventListener("click", () => {
     }, 30000);
   }
 });
-
-
-
-
