@@ -44,6 +44,7 @@ body {
 
 header {
   @include flexInFlex;
+
   align-self: flex-start;
   width: 100vw;
   min-height: 120px;
