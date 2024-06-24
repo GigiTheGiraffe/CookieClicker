@@ -40,7 +40,7 @@ const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplie
 const multiplierValue = 10;
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
-const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
+const costMultipliers = [1000, 1000, 10000, 100000, 300000, 500000];
 const countMultipliers = [0, 0, 0, 0, 0, 0];
 //Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
 const costAutoclickers = [15, 100, 1100, 12000, 130000];
@@ -51,7 +51,7 @@ let costBonus = 1;
 let bool;
 let bonusActivated = false;
 let bonusTimeInterval;
-let score = 10000;
+let score = 0;
 
 //Ajoute le montant du click au score
 function click() {
@@ -86,7 +86,7 @@ function toggleButton(button, image, source, activate) {
 };
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
-  return Math.floor(cost * 1.15);
+  return Math.floor(cost * 5);
 };
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
