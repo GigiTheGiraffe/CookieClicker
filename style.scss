@@ -227,7 +227,7 @@ main {
       margin-left: -2rem;
     }
   }
-  #birdMultiplier {
+  #birdieMultiplier {
     background-color: rgb(200, 190, 15);
     border-color: yellow;
     .tooltip .tooltiptext {
@@ -260,12 +260,21 @@ main {
   img {
     @include imageMultiplierDesign();
   }
-
-  #costMultiplierDisplay {
+  #costClickMultiplierDisplay,
+  #costElmoMultiplierDisplay,
+  #costBirdieMultiplierDisplay,
+  #costOscarMultiplierDisplay,
+  #costGroverMultiplierDisplay,
+  #costErnieMultiplierDisplay {
     @include costMultiplierDesign();
   }
 
-  #countMultiplierDisplay {
+  #countClickMultiplierDisplay,
+  #countElmoMultiplierDisplay,
+  #countBirdieMultiplierDisplay,
+  #countOscarMultiplierDisplay,
+  #countGroverMultiplierDisplay,
+  #countErnieMultiplierDisplay {
     @include countMultiplierDesign();
   }
 
@@ -374,16 +383,24 @@ main {
     }
   }
 
-  #costAutoclickerDisplay {
+  #costElmoDisplay,
+  #costBirdieDisplay,
+  #costOscarDisplay,
+  #costGroverDisplay,
+  #costErnieDisplay {
     @include costAutoclickerDesign();
+  }
+
+  #countElmoDisplay,
+  #countBirdieDisplay,
+  #countOscarDisplay,
+  #countGroverDisplay,
+  #countErnieDisplay {
+    @include countAutoclickerDesign();
   }
 
   image {
     @include imageAutoclickerDesign();
-  }
-
-  #countAutoclickerDisplay {
-    @include countAutoclickerDesign();
   }
 }
 

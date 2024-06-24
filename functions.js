@@ -1,20 +1,51 @@
 const cookieBtn = document.querySelector(".cookieBtn");
 const scoreDisplay = document.querySelector(".scoreDisplay");
-const multiplierBtn = document.getElementById("clickMultiplier");
-const costMultiplierDisplay = document.getElementById("costMultiplierDisplay");
-const countMultiplierDisplay = document.getElementById("countMultiplierDisplay");
-const autoclickerBtn = document.getElementById("autoclickerBtn");
-const costAutoclickerDisplay = document.getElementById("costAutoclickerDisplay");
-const countAutoclickerDisplay = document.getElementById("countAutoclickerDisplay");
+const ClickMultiplierBtn = document.getElementById("clickMultiplier");
+const costClickMultiplierDisplay = document.getElementById("costClickMultiplierDisplay");
+const countClickMultiplierDisplay = document.getElementById("countClickMultiplierDisplay");
+const autoclickerElmo = document.getElementById("autoclickerElmoBtn");
+const costElmoDisplay = document.getElementById("costElmoDisplay");
+const countElmoDisplay = document.getElementById("countElmoDisplay");
+const autoclickerBirdie = document.getElementById("autoclickerBirdieBtn");
+const costBirdieDisplay = document.getElementById("costBirdieDisplay");
+const countBirdieDisplay = document.getElementById("countBirdieDisplay");
+const autoclickerOscar = document.getElementById("autoclickerOscarBtn");
+const costOscarDisplay = document.getElementById("costOscarDisplay");
+const countOscarDisplay = document.getElementById("countOscarDisplay");
+const autoclickerGrover = document.getElementById("autoclickerGroverBtn");
+const costGroverDisplay = document.getElementById("costGroverDisplay");
+const countGroverDisplay = document.getElementById("countGroverDisplay");
+const autoclickerErnie = document.getElementById("autoclickerErnieBtn");
+const costErnieDisplay = document.getElementById("costErnieDisplay");
+const countErnieDisplay = document.getElementById("countErnieDisplay");
 const bonusBtn = document.getElementById("bonusBtn");
 const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
+const cookieSecondDisplay = document.querySelector(".clickPerSecondDisplay");
+const elmoMultiplierBtn = document.getElementById("elmoMultiplier");
+const costElmoMultiplierDisplay = document.getElementById("costElmoMultiplierDisplay");
+const countElmoMultiplierDisplay = document.getElementById("countElmoMultiplierDisplay");
+const birdieMultiplierBtn = document.getElementById("birdieMultiplier");
+const costBirdieMultiplierDisplay = document.getElementById("costBirdieMultiplierDisplay");
+const countBirdieMultiplierDisplay = document.getElementById("countBirdieMultiplierDisplay");
+const oscarMultiplierBtn = document.getElementById("oscarMultiplier");
+const costOscarMultiplierDisplay = document.getElementById("costOscarMultiplierDisplay");
+const countOscarMultiplierDisplay = document.getElementById("countOscarMultiplierDisplay");
+const groverMultiplierBtn = document.getElementById("groverMultiplier");
+const costGroverMultiplierDisplay = document.getElementById("costGroverMultiplierDisplay");
+const countGroverMultiplierDisplay = document.getElementById("countGroverMultiplierDisplay");
+const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
+const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
+const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
 const multiplierValue = 2;
 let clickValue = 1;
-let costMultiplier = 15;
-let countMultiplier = 0;
-let costAutoclicker = 15;
-let countAutoclicker = 0;
+//Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
+const costMultipliers = [15, 15, 15, 15, 15, 15];
+const countMultipliers = [0, 0, 0, 0, 0, 0];
+//Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
+const costAutoclickers = [15, 100, 1100, 12000, 130000];
+const countAutoclickers = [0, 0, 0, 0, 0];
+const CpsAutoclicker = [1, 8, 47, 260, 1400];
 let cookieSecond = 0;
 let costBonus = 1;
 let bool;
@@ -25,6 +56,11 @@ let score = 0;
 //Ajoute le montant du click au score
 function click() {
   score += clickValue;
+  updateScoreDisplay();
+};
+//Cookie par seconde supplémentaire par autoclicker
+function Cpsclick(i) {
+  score += CpsAutoclicker[i];
   updateScoreDisplay();
 };
 //Mets à jour le label du score avec le nouveau montant
@@ -51,7 +87,7 @@ function toggleButton(button, image, source, activate) {
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
   return Math.floor(cost * 1.15);
-}
+};
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
   if (score >= cost) {
@@ -61,29 +97,146 @@ function checkScore(cost) {
   else {
     return false
   }
-}
-//Comportement du bouton multiplicateusr
-multiplierBtn.addEventListener("click", function () {
-  bool = checkScore(costMultiplier);
+};
+//fonction pour ajouter à la var cookieSecond et l'afficher CHANGER LE COOKIESECOND += CLICKVALUE PAR LA NOUVELLE ECONOMIE DE JUAN QUAND DISPO
+function cookieSecondAddShow(i) {
+  cookieSecond += CpsAutoclicker[i];
+  cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
+};
+//Comportement du bouton multiplicateur pour le click
+ClickMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[0]);
   if (bool) {
-    costMultiplier = multiplyCost(costMultiplier);
-    countMultiplier++;
-    updateValue(costMultiplierDisplay, costMultiplier);
-    updateValue(countMultiplierDisplay, countMultiplier);
+    costMultipliers[0] = multiplyCost(costMultipliers[0]);
+    countMultipliers[0]++;
+    updateValue(costClickMultiplierDisplay, costMultipliers[0]);
+    updateValue(countClickMultiplierDisplay, countMultipliers[0]);
     clickValue = multiplierValue * clickValue;
     updateScoreDisplay();
   }
 });
-//Comportement du bouton autoclicker
-autoclickerBtn.addEventListener("click", function () {
-  bool = checkScore(costAutoclicker);
+//Comportement du bouton multiplicateur pour elmo
+elmoMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[1]);
   if (bool) {
-    costAutoclicker = multiplyCost(costAutoclicker);
-    countAutoclicker++;
-    updateValue(costAutoclickerDisplay, costAutoclicker);
-    updateValue(countAutoclickerDisplay, countAutoclicker);
-    setInterval(click, 1000);
-    cookieSecond += clickValue;
+    costMultipliers[1] = multiplyCost(costMultipliers[1]);
+    countMultipliers[1]++;
+    updateValue(costElmoMultiplierDisplay, costMultipliers[1]);
+    updateValue(countElmoMultiplierDisplay, countMultipliers[1]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour birdie
+birdieMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[2]);
+  if (bool) {
+    costMultipliers[2] = multiplyCost(costMultipliers[2]);
+    countMultipliers[2]++;
+    updateValue(costBirdieMultiplierDisplay, costMultipliers[2]);
+    updateValue(countBirdieMultiplierDisplay, countMultipliers[2]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour oscar
+oscarMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[3]);
+  if (bool) {
+    costMultipliers[3] = multiplyCost(costMultipliers[3]);
+    countMultipliers[3]++;
+    updateValue(costOscarMultiplierDisplay, costMultipliers[3]);
+    updateValue(countOscarMultiplierDisplay, countMultipliers[3]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour grover
+groverMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[4]);
+  if (bool) {
+    costMultipliers[4] = multiplyCost(costMultipliers[4]);
+    countMultipliers[4]++;
+    updateValue(costGroverMultiplierDisplay, costMultipliers[4]);
+    updateValue(countGroverMultiplierDisplay, countMultipliers[4]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour ernie
+ernieMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[5]);
+  if (bool) {
+    costMultipliers[5] = multiplyCost(costMultipliers[5]);
+    countMultipliers[5]++;
+    updateValue(costErnieMultiplierDisplay, costMultipliers[5]);
+    updateValue(countErnieMultiplierDisplay, countMultipliers[5]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker elmo 
+autoclickerElmo.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[0]);
+  if (bool) {
+    costAutoclickers[0] = multiplyCost(costAutoclickers[0]);
+    countAutoclickers[0]++;
+    updateValue(costElmoDisplay, costAutoclickers[0]);
+    updateValue(countElmoDisplay, countAutoclickers[0]);
+    setInterval(function() {Cpsclick(0)}, 1000);
+    cookieSecondAddShow(0);
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker birdie
+autoclickerBirdie.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[1]);
+  if (bool) {
+    costAutoclickers[1] = multiplyCost(costAutoclickers[1]);
+    countAutoclickers[1]++;
+    updateValue(costBirdieDisplay, costAutoclickers[1]);
+    updateValue(countBirdieDisplay, countAutoclickers[1]);
+    setInterval(function() {Cpsclick(1)}, 1000);
+    cookieSecondAddShow(1);
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker oscar
+autoclickerOscar.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[2]);
+  if (bool) {
+    costAutoclickers[2] = multiplyCost(costAutoclickers[2]);
+    countAutoclickers[2]++;
+    updateValue(costOscarDisplay, costAutoclickers[2]);
+    updateValue(countOscarDisplay, countAutoclickers[2]);
+    setInterval(function() {Cpsclick(2)}, 1000);
+    cookieSecondAddShow(2);
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker grover
+autoclickerGrover.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[3]);
+  if (bool) {
+    costAutoclickers[3] = multiplyCost(costAutoclickers[3]);
+    countAutoclickers[3]++;
+    updateValue(costGroverDisplay, costAutoclickers[3]);
+    updateValue(countGroverDisplay, countAutoclickers[3]);
+    setInterval(function() {Cpsclick(3)}, 1000);
+    cookieSecondAddShow(3);
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker ernie
+autoclickerErnie.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[4]);
+  if (bool) {
+    costAutoclickers[4] = multiplyCost(costAutoclickers[4]);
+    countAutoclickers[4]++;
+    updateValue(costErnieDisplay, costAutoclickers[4]);
+    updateValue(countErnieDisplay, countAutoclickers[4]);
+    setInterval(function() {Cpsclick(4)}, 1000);
+    cookieSecondAddShow(4);
     updateScoreDisplay();
   }
 });
@@ -129,7 +282,3 @@ bonusBtn.addEventListener("click", () => {
     }, 30000);
   }
 });
-
-
-
-
