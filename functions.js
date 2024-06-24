@@ -37,10 +37,10 @@ const countGroverMultiplierDisplay = document.getElementById("countGroverMultipl
 const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
 const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
 const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
-const multiplierValue = 2;
+const multiplierValue = 10;
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
-const costMultipliers = [15, 15, 15, 15, 15, 15];
+const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
 const countMultipliers = [0, 0, 0, 0, 0, 0];
 //Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
 const costAutoclickers = [15, 100, 1100, 12000, 130000];
@@ -51,7 +51,7 @@ let costBonus = 1;
 let bool;
 let bonusActivated = false;
 let bonusTimeInterval;
-let score = 0;
+let score = 1000;
 
 //Ajoute le montant du click au score
 function click() {
@@ -99,8 +99,8 @@ function checkScore(cost) {
   }
 };
 //fonction pour ajouter à la var cookieSecond et l'afficher CHANGER LE COOKIESECOND += CLICKVALUE PAR LA NOUVELLE ECONOMIE DE JUAN QUAND DISPO
-function cookieSecondAddShow(i) {
-  cookieSecond += CpsAutoclicker[i];
+function cookieSecondShow() {
+    cookieSecond = countAutoclickers[0] * CpsAutoclicker[0] + countAutoclickers[1] * CpsAutoclicker[1] + countAutoclickers[2] * CpsAutoclicker[2] + countAutoclickers[3] * CpsAutoclicker[3] + countAutoclickers[4] * CpsAutoclicker[4];
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
 };
 //Comportement du bouton multiplicateur pour le click
@@ -123,7 +123,8 @@ elmoMultiplierBtn.addEventListener("click", function () {
     countMultipliers[1]++;
     updateValue(costElmoMultiplierDisplay, costMultipliers[1]);
     updateValue(countElmoMultiplierDisplay, countMultipliers[1]);
-    clickValue = multiplierValue * clickValue;
+    CpsAutoclicker[0] = multiplierValue * CpsAutoclicker[0];
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -135,7 +136,8 @@ birdieMultiplierBtn.addEventListener("click", function () {
     countMultipliers[2]++;
     updateValue(costBirdieMultiplierDisplay, costMultipliers[2]);
     updateValue(countBirdieMultiplierDisplay, countMultipliers[2]);
-    clickValue = multiplierValue * clickValue;
+    CpsAutoclicker[1] = multiplierValue * CpsAutoclicker[1];
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -147,7 +149,8 @@ oscarMultiplierBtn.addEventListener("click", function () {
     countMultipliers[3]++;
     updateValue(costOscarMultiplierDisplay, costMultipliers[3]);
     updateValue(countOscarMultiplierDisplay, countMultipliers[3]);
-    clickValue = multiplierValue * clickValue;
+    CpsAutoclicker[2] = multiplierValue * CpsAutoclicker[2];
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -159,7 +162,8 @@ groverMultiplierBtn.addEventListener("click", function () {
     countMultipliers[4]++;
     updateValue(costGroverMultiplierDisplay, costMultipliers[4]);
     updateValue(countGroverMultiplierDisplay, countMultipliers[4]);
-    clickValue = multiplierValue * clickValue;
+    CpsAutoclicker[3] = multiplierValue * CpsAutoclicker[3];
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -171,7 +175,8 @@ ernieMultiplierBtn.addEventListener("click", function () {
     countMultipliers[5]++;
     updateValue(costErnieMultiplierDisplay, costMultipliers[5]);
     updateValue(countErnieMultiplierDisplay, countMultipliers[5]);
-    clickValue = multiplierValue * clickValue;
+    CpsAutoclicker[4] = multiplierValue * CpsAutoclicker[4];
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -184,7 +189,7 @@ autoclickerElmo.addEventListener("click", function () {
     updateValue(costElmoDisplay, costAutoclickers[0]);
     updateValue(countElmoDisplay, countAutoclickers[0]);
     setInterval(function() {Cpsclick(0)}, 1000);
-    cookieSecondAddShow(0);
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -197,7 +202,7 @@ autoclickerBirdie.addEventListener("click", function () {
     updateValue(costBirdieDisplay, costAutoclickers[1]);
     updateValue(countBirdieDisplay, countAutoclickers[1]);
     setInterval(function() {Cpsclick(1)}, 1000);
-    cookieSecondAddShow(1);
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -210,7 +215,7 @@ autoclickerOscar.addEventListener("click", function () {
     updateValue(costOscarDisplay, costAutoclickers[2]);
     updateValue(countOscarDisplay, countAutoclickers[2]);
     setInterval(function() {Cpsclick(2)}, 1000);
-    cookieSecondAddShow(2);
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -223,7 +228,7 @@ autoclickerGrover.addEventListener("click", function () {
     updateValue(costGroverDisplay, costAutoclickers[3]);
     updateValue(countGroverDisplay, countAutoclickers[3]);
     setInterval(function() {Cpsclick(3)}, 1000);
-    cookieSecondAddShow(3);
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
@@ -236,7 +241,7 @@ autoclickerErnie.addEventListener("click", function () {
     updateValue(costErnieDisplay, costAutoclickers[4]);
     updateValue(countErnieDisplay, countAutoclickers[4]);
     setInterval(function() {Cpsclick(4)}, 1000);
-    cookieSecondAddShow(4);
+    cookieSecondShow();
     updateScoreDisplay();
   }
 });
