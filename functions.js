@@ -51,7 +51,7 @@ let costBonus = 1;
 let bool;
 let bonusActivated = false;
 let bonusTimeInterval;
-let score = 0;
+let score = 10000;
 
 //Ajoute le montant du click au score
 function click() {
