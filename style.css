@@ -167,7 +167,7 @@ main {
   border-color: rgb(102, 16, 16);
 }
 .multiplierShop #elmoMultiplier .tooltip .tooltiptext {
-  margin-left: -8rem;
+  margin-left: -2rem;
 }
 .multiplierShop #birdMultiplier {
   background-color: rgb(200, 190, 15);
@@ -232,7 +232,8 @@ main {
 .tooltip .tooltiptext {
   position: absolute;
   visibility: hidden;
-  border: 2px ridge rgb(10, 157, 210);
+  border: 6px ridge rgb(10, 157, 210);
+  border-radius: 15px;
   width: auto;
   background-color: #174883;
   background-image: url(assets/lined-paper-2.png);
@@ -240,7 +241,6 @@ main {
   text-align: center;
   font-weight: 600;
   padding: 10px;
-  border-radius: 15px;
   top: 8rem;
 }
 
@@ -290,6 +290,9 @@ main {
   margin: auto 15px;
   background-color: rgb(1, 23, 48);
   background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+}
+.autoclickShop button .tooltip .tooltiptext {
+  margin-top: -50rem;
 }
 .autoclickShop button img {
   position: relative;

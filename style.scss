@@ -172,10 +172,11 @@ main {
   text-align: end;
 }
 
-@mixin tooltipDesign {
+@mixin tooltipMultiplierDesign {
   position: absolute;
   visibility: hidden;
-  border: 2px ridge rgb(10, 157, 210);
+  border: 6px ridge rgb(10, 157, 210);
+  border-radius: 15px;
   width: auto;
   background-color: #174883;
   background-image: url(assets/lined-paper-2.png);
@@ -183,7 +184,6 @@ main {
   text-align: center;
   font-weight: 600;
   padding: 10px;
-  border-radius: 15px;
   top: 8rem;
 }
 
@@ -224,7 +224,7 @@ main {
     background-color: rgb(187, 29, 29);
     border-color: rgb(102, 16, 16);
     .tooltip .tooltiptext {
-      margin-left: -8rem;
+      margin-left: -2rem;
     }
   }
   #birdMultiplier {
@@ -275,7 +275,7 @@ main {
 }
 
 .tooltip .tooltiptext {
-  @include tooltipDesign();
+  @include tooltipMultiplierDesign();
 }
 
 .tooltip:hover .tooltiptext {
@@ -362,7 +362,9 @@ main {
 
   button {
     @include autoclickerBtns();
-
+    .tooltip .tooltiptext {
+      margin-top: -50rem;
+    }
     img {
       position: relative;
       margin: auto;
