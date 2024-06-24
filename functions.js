@@ -1,8 +1,8 @@
 const cookieBtn = document.querySelector(".cookieBtn");
 const scoreDisplay = document.querySelector(".scoreDisplay");
-const multiplierBtn = document.getElementById("clickMultiplier");
-const costMultiplierDisplay = document.getElementById("costMultiplierDisplay");
-const countMultiplierDisplay = document.getElementById("countMultiplierDisplay");
+const ClickMultiplierBtn = document.getElementById("clickMultiplier");
+const costClickMultiplierDisplay = document.getElementById("costClickMultiplierDisplay");
+const countClickMultiplierDisplay = document.getElementById("countClickMultiplierDisplay");
 const autoclickerElmo = document.getElementById("autoclickerElmoBtn");
 const costElmoDisplay = document.getElementById("costElmoDisplay");
 const countElmoDisplay = document.getElementById("countElmoDisplay");
@@ -22,12 +22,26 @@ const bonusBtn = document.getElementById("bonusBtn");
 const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
 const cookieSecondDisplay = document.querySelector(".clickPerSecondDisplay");
-console.log(cookieSecondDisplay.innerHTML);
-
+const elmoMultiplierBtn = document.getElementById("elmoMultiplier");
+const costElmoMultiplierDisplay = document.getElementById("costElmoMultiplierDisplay");
+const countElmoMultiplierDisplay = document.getElementById("countElmoMultiplierDisplay");
+const birdieMultiplierBtn = document.getElementById("birdieMultiplier");
+const costBirdieMultiplierDisplay = document.getElementById("costBirdieMultiplierDisplay");
+const countBirdieMultiplierDisplay = document.getElementById("countBirdieMultiplierDisplay");
+const oscarMultiplierBtn = document.getElementById("oscarMultiplier");
+const costOscarMultiplierDisplay = document.getElementById("costOscarMultiplierDisplay");
+const countOscarMultiplierDisplay = document.getElementById("countOscarMultiplierDisplay");
+const groverMultiplierBtn = document.getElementById("groverMultiplier");
+const costGroverMultiplierDisplay = document.getElementById("costGroverMultiplierDisplay");
+const countGroverMultiplierDisplay = document.getElementById("countGroverMultiplierDisplay");
+const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
+const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
+const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
 const multiplierValue = 2;
 let clickValue = 1;
-let costMultiplier = 15;
-let countMultiplier = 0;
+//Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
+const costMultipliers = [15, 15, 15, 15, 15, 15];
+const countMultipliers = [0, 0, 0, 0, 0, 0];
 //Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
 const costAutoclickers = [15, 15, 15, 15, 15];
 const countAutoclickers = [0, 0, 0, 0, 0];
@@ -84,14 +98,74 @@ function cookieSecondAddShow() {
   console.log(cookieSecond);
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
 }
-//Comportement du bouton multiplicateur
-multiplierBtn.addEventListener("click", function () {
-  bool = checkScore(costMultiplier);
+//Comportement du bouton multiplicateur pour le click
+ClickMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[0]);
   if (bool) {
-    costMultiplier = multiplyCost(costMultiplier);
-    countMultiplier++;
-    updateValue(costMultiplierDisplay, costMultiplier);
-    updateValue(countMultiplierDisplay, countMultiplier);
+    costMultipliers[0] = multiplyCost(costMultipliers[0]);
+    countMultipliers[0]++;
+    updateValue(costClickMultiplierDisplay, costMultipliers[0]);
+    updateValue(countClickMultiplierDisplay, countMultipliers[0]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour elmo
+elmoMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[1]);
+  if (bool) {
+    costMultipliers[1] = multiplyCost(costMultipliers[1]);
+    countMultipliers[1]++;
+    updateValue(costElmoMultiplierDisplay, costMultipliers[1]);
+    updateValue(countElmoMultiplierDisplay, countMultipliers[1]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour birdie
+birdieMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[2]);
+  if (bool) {
+    costMultipliers[2] = multiplyCost(costMultipliers[2]);
+    countMultipliers[2]++;
+    updateValue(costBirdieMultiplierDisplay, costMultipliers[2]);
+    updateValue(countBirdieMultiplierDisplay, countMultipliers[2]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour oscar
+oscarMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[3]);
+  if (bool) {
+    costMultipliers[3] = multiplyCost(costMultipliers[3]);
+    countMultipliers[3]++;
+    updateValue(costOscarMultiplierDisplay, costMultipliers[3]);
+    updateValue(countOscarMultiplierDisplay, countMultipliers[3]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour grover
+groverMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[4]);
+  if (bool) {
+    costMultipliers[4] = multiplyCost(costMultipliers[4]);
+    countMultipliers[4]++;
+    updateValue(costGroverMultiplierDisplay, costMultipliers[4]);
+    updateValue(countGroverMultiplierDisplay, countMultipliers[4]);
+    clickValue = multiplierValue * clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton multiplicateur pour ernie
+ernieMultiplierBtn.addEventListener("click", function () {
+  bool = checkScore(costMultipliers[5]);
+  if (bool) {
+    costMultipliers[5] = multiplyCost(costMultipliers[5]);
+    countMultipliers[5]++;
+    updateValue(costErnieMultiplierDisplay, costMultipliers[5]);
+    updateValue(countErnieMultiplierDisplay, countMultipliers[5]);
     clickValue = multiplierValue * clickValue;
     updateScoreDisplay();
   }
