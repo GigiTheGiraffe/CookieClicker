@@ -21,6 +21,8 @@ const countErnieDisplay = document.getElementById("countErnieDisplay");
 const bonusBtn = document.getElementById("bonusBtn");
 const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
+const cookieSecondDisplay = document.querySelector(".clickPerSecondDisplay");
+console.log(cookieSecondDisplay.innerHTML);
 
 const multiplierValue = 2;
 let clickValue = 1;
@@ -76,6 +78,12 @@ function checkScore(cost) {
     return false
   }
 }
+//fonction pour ajouter à la var cookieSecond et l'afficher CHANGER LE COOKIESECOND += CLICKVALUE PAR LA NOUVELLE ECONOMIE DE JUAN QUAND DISPO
+function cookieSecondAddShow() {
+  cookieSecond += clickValue;
+  console.log(cookieSecond);
+  cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
+}
 //Comportement du bouton multiplicateur
 multiplierBtn.addEventListener("click", function () {
   bool = checkScore(costMultiplier);
@@ -88,7 +96,7 @@ multiplierBtn.addEventListener("click", function () {
     updateScoreDisplay();
   }
 });
-//Comportement du bouton autoclicker elmo
+//Comportement du bouton autoclicker elmo 
 autoclickerElmo.addEventListener("click", function () {
   bool = checkScore(costAutoclickers[0]);
   if (bool) {
@@ -97,7 +105,7 @@ autoclickerElmo.addEventListener("click", function () {
     updateValue(costElmoDisplay, costAutoclickers[0]);
     updateValue(countElmoDisplay, countAutoclickers[0]);
     setInterval(click, 1000);
-    cookieSecond += clickValue;
+    cookieSecondAddShow();
     updateScoreDisplay();
   }
 });
@@ -110,7 +118,7 @@ autoclickerBirdie.addEventListener("click", function () {
     updateValue(costBirdieDisplay, costAutoclickers[1]);
     updateValue(countBirdieDisplay, countAutoclickers[1]);
     setInterval(click, 1000);
-    cookieSecond += clickValue;
+    cookieSecondAddShow();
     updateScoreDisplay();
   }
 });
@@ -123,7 +131,7 @@ autoclickerOscar.addEventListener("click", function () {
     updateValue(costOscarDisplay, costAutoclickers[2]);
     updateValue(countOscarDisplay, countAutoclickers[2]);
     setInterval(click, 1000);
-    cookieSecond += clickValue;
+    cookieSecondAddShow();
     updateScoreDisplay();
   }
 });
@@ -136,7 +144,7 @@ autoclickerGrover.addEventListener("click", function () {
     updateValue(costGroverDisplay, costAutoclickers[3]);
     updateValue(countGroverDisplay, countAutoclickers[3]);
     setInterval(click, 1000);
-    cookieSecond += clickValue;
+    cookieSecondAddShow();
     updateScoreDisplay();
   }
 });
@@ -149,7 +157,7 @@ autoclickerErnie.addEventListener("click", function () {
     updateValue(costErnieDisplay, costAutoclickers[4]);
     updateValue(countErnieDisplay, countAutoclickers[4]);
     setInterval(click, 1000);
-    cookieSecond += clickValue;
+    cookieSecondAddShow();
     updateScoreDisplay();
   }
 });
