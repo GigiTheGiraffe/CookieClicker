@@ -36,36 +36,39 @@
     <button>Commencer à jouer</button>
   </section>
   <main>
+
     <section id="zoneCookie">
+      <img src="assets/cookieMonster.webp" class="cookiePose" alt="cookieMonster">
       <button class="cookieBtn animate__animated animate__heartBeat">
         <img src="./assets/cookie01.webp" alt="Cookie" />
       </button>
       <button id="bonusBtn" class="autoclick" type="button">
-        Bouton bonus</button>
+        <img src="assets/cookie02.webp" alt="cookieBonus"></button>
     </section>
 
     <section id="zoneInfos">
       <article class="multiplierShop">
 
         <!-- MULTIPLIER 1 COOKIE CLICK -->
-
+        
         <button id="clickMultiplier" type="button" class="tooltip">
-          <!-- <article class="tooltiptext">
-            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
-          </article> -->
+          <div class="tooltip">
+            <span class="tooltiptext">Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</span>
+          </div>  
 
           <p id="costClickMultiplierDisplay">15</p>
           <img src="assets/multiplierCookieClicker.webp" alt="iconMultiplier" />
           <p id="countClickMultiplierDisplay">0</p>
         </button>
+      
 
         <!-- MULTIPLIER 2 AUTO CLICK -->
 
         <button id="elmoMultiplier" type="button" class="tooltip">
 
-          <!-- <article class="tooltiptext">
-            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
-          </article> -->
+          <article class="tooltip">
+            <span class="tooltiptext">Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</span>
+          </article> 
 
           <p id="costElmoMultiplierDisplay">15</p>
           <img src="assets/multiplierElmoAutoclicker.webp" alt="iconMultiplier" />
@@ -75,9 +78,9 @@
         <!-- MULTIPLIER 3 AUTO CLICK -->
 
         <button id="birdieMultiplier" type="button" class="tooltip">
-          <!-- <article class="tooltiptext">
-          <p>birdie birdie</p>
-        </article> -->
+          <article class="tooltip">
+          <span class="tooltiptext">Sur ses patins, Big Bird trouve toujours plus de cookies à cliquer.</span>
+        </article> 
 
           <p id="costBirdieMultiplierDisplay">15</p>
           <img src="./assets/multiplierCookieMonster.webp" alt="iconMultiplier" />
@@ -87,9 +90,9 @@
         <!-- MULTIPLIER 4 AUTO CLICK -->
 
         <button id="oscarMultiplier" type="button" class="tooltip">
-          <!-- <article class="tooltiptext">
-        <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
-      </article> -->
+          <article class="tooltip">
+            <span class="tooltiptext">La poubelle d'Oscar cache de nombreux cookies, augmentant ainsi la vitesse de clic.</span>
+          </article> 
 
           <p id="costOscarMultiplierDisplay">15</p>
           <img src="assets/multiplierOscarAutoclicker.webp" alt="iconMultiplier" />
@@ -99,24 +102,25 @@
         <!-- MULTIPLIER 5 AUTO CLICK -->
 
         <button id="groverMultiplier" type="button" class="tooltip">
-          <!-- <article class="tooltiptext">
-      <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
-    </article> -->
-
+          <article class="tooltip">
+            <span class="tooltiptext">Super Grover: Avec sa cape, Grover clique à la vitesse de l'éclair.</span>
+          </article> 
           <p id="costGroverMultiplierDisplay">15</p>
-          <img src="" alt="iconMultiplier" />
+          <img src="assets/multiplierGroverAutoclicker.webp" alt="iconMultiplier" />
           <p id="countGroverMultiplierDisplay">0</p>
         </button>
 
         <!-- MULTIPLIER 6 AUTO CLICK -->
 
         <button id="ernieMultiplier" type="button" class="tooltip">
-          <!-- <article class="tooltiptext">
-            <p>Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
-          </article> -->
-
+          <article class="tooltip">
+            <span class="tooltiptext">Le canard d'Ernie rend chaque clic plus joyeux et plus rapide.</span>
+          </article> 
+          <p id="costMultiplierDisplay">15</p>
+          <img src="assets/multiplierErnieAutoclicker.webp" alt="iconMultiplier" />
+          <p id="countMultiplierDisplay">0</p>
           <p id="costErnieMultiplierDisplay">15</p>
-          <img src="assets/multiplierCookieClicker.webp" alt="iconMultiplier" />
+          <img src="assets/multiplierErnieAutoclicker.webp" alt="iconMultiplier" />
           <p id="countErnieMultiplierDisplay">0</p>
         </button>
 
