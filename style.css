@@ -183,7 +183,7 @@ main {
   text-align: end;
 }
 .multiplierShop button:disabled {
-  color: rgb(1, 48, 48);
+  background-color: rgb(1, 48, 48);
 }
 
 /* SCORE DISPLAY */
