@@ -8,9 +8,10 @@
 }
 
 @font-face {
-  font-family: "GreatVibes-Regular.ttf";
-  src: url(./assets/Fonts/GreatVibes-Regular.ttf);
-  font-style: normal;
+  font-family: "HomemadeApple-Regular.ttf";
+  src: url(./assets/Fonts/HomemadeApple-Regular.ttf);
+
+  font-weight: 100;
   font-display: swap;
 }
 
@@ -53,11 +54,13 @@ header {
 
 h1 {
   position: absolute;
-  margin-left: 64%;
+  margin-left: 55%;
   top: 5px;
-  font-family: "GreatVibes-Regular.ttf", serif;
+  font-family: "HomemadeApple-Regular.ttf", serif;
   font-size: 5rem;
-  color: #174883;
+  line-height: 6rem;
+  color: rgb(86, 192, 234);
+  text-shadow: 3px 4px 5px #000;
 }
 
 main {
@@ -76,13 +79,20 @@ main {
   height: 75vh;
 }
 
+.cookiePose {
+  @include flexInFlex();
+  position: absolute;
+  z-index: 0;
+  opacity: 0.6;
+  left: 4rem;
+}
+
 .cookieBtn {
   padding: 0;
-  max-height: 485px;
-  max-width: 485px;
-
+  max-height: 302px;
+  max-width: 310px;
   position: relative;
-  margin: 5rem 10rem;
+  margin: 15rem 8rem;
   background: none;
   border-radius: 50%;
   border: none;
@@ -94,6 +104,19 @@ main {
   margin: 0;
   width: 100%;
   height: auto;
+  opacity: 1;
+}
+
+#bonusBtn {
+  position: absolute;
+  background: none;
+  border: none;
+  z-index: 1;
+  left: 85%;
+  img {
+    width: 150px;
+  }
+  cursor: grab;
 }
 
 /* ZONE DROITE */
@@ -115,6 +138,8 @@ main {
   object-fit: cover;
   width: 90px;
   height: 90px;
+  border-style: inset;
+  background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
 }
 
 @mixin costMultiplierDesign {
@@ -147,16 +172,31 @@ main {
   text-align: end;
 }
 
+@mixin tooltipDesign {
+  position: absolute;
+  visibility: hidden;
+  border: 2px ridge rgb(10, 157, 210);
+  width: auto;
+  background-color: #174883;
+  background-image: url(assets/lined-paper-2.png);
+  color: yellow;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 15px;
+  top: 8rem;
+}
+
 /* MULTIPLIER SHOP */
 
 .multiplierShop {
   @include flexInFlex;
   margin-left: 10%;
-  margin-top: 10%;
+  margin-top: 15%;
   background-color: #174883;
   padding: 20px 40px;
   border-radius: 18px;
-  border: 5px rgb(6, 133, 179);
+  border: 6px rgb(10, 157, 210);
   border-style: ridge;
   max-height: 100px;
   max-width: 650px;
@@ -177,28 +217,43 @@ main {
   /* BUTTONS ACTIVE PROPERTIES */
 
   #clickMultiplier {
-    background-color: rgb(0, 187, 212);
-    border-color: rgb(11, 172, 208);
+    background-color: rgb(0, 155, 176);
+    border-color: rgb(1, 85, 96);
   }
   #elmoMultiplier {
-    background-color: rgb(224, 58, 58);
-    border-color: red;
+    background-color: rgb(187, 29, 29);
+    border-color: rgb(102, 16, 16);
+    .tooltip .tooltiptext {
+      margin-left: -8rem;
+    }
   }
   #birdMultiplier {
-    background-color: rgb(238, 238, 61);
+    background-color: rgb(200, 190, 15);
     border-color: yellow;
+    .tooltip .tooltiptext {
+      margin-left: -10rem;
+    }
   }
   #oscarMultiplier {
     background-color: rgb(40, 127, 40);
-    border-color: rgb(0, 117, 25);
+    border-color: rgb(0, 80, 17);
+    .tooltip .tooltiptext {
+      margin-left: -18rem;
+    }
   }
   #groverMultiplier {
-    background-color: blue;
-    border-color: rgb(21, 112, 230);
+    background-color: rgb(0, 0, 197);
+    border-color: rgb(0, 0, 107);
+    .tooltip .tooltiptext {
+      margin-left: -21rem;
+    }
   }
   #ernieMultiplier {
     background-color: rgb(230, 136, 21);
-    border-color: orangered;
+    border-color: rgb(134, 78, 10);
+    .tooltip .tooltiptext {
+      margin-left: -27rem;
+    }
   }
   /* */
 
@@ -219,6 +274,14 @@ main {
   }
 }
 
+.tooltip .tooltiptext {
+  @include tooltipDesign();
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
 /* SCORE DISPLAY */
 
 .scoreDisplay {
@@ -226,7 +289,7 @@ main {
   font-family: "Merriweather-Regular.ttf", serif;
   font-size: 4rem;
   margin-left: 27%;
-  margin-top: 24%;
+  margin-top: 18%;
   white-space: nowrap;
 }
 
@@ -245,11 +308,11 @@ main {
   position: relative;
   display: flex;
   flex-direction: column;
-  object-fit: cover;
   width: 130px;
   height: 130px;
   margin: auto 15px;
-  background-color: rgb(1, 48, 48);
+  background-color: rgb(1, 23, 48);
+  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
 }
 
 @mixin costAutoclickerDesign {
@@ -268,6 +331,7 @@ main {
   max-height: 70px;
   object-fit: cover;
   justify-self: start;
+  object-fit: cover;
 }
 
 @mixin countAutoclickerDesign {
@@ -285,6 +349,8 @@ main {
 /* AUTO CLICK SHOP SASS DISPLAY */
 
 .autoclickShop {
+  border-top: 5px ridge;
+  border-top-color: rgb(10, 157, 210);
   position: absolute;
   display: flex;
   justify-content: center;
@@ -296,6 +362,14 @@ main {
 
   button {
     @include autoclickerBtns();
+
+    img {
+      position: relative;
+      margin: auto;
+      max-height: 110px;
+      object-fit: cover;
+      justify-self: start;
+    }
   }
 
   #costAutoclickerDisplay {
@@ -328,5 +402,5 @@ legend {
 }
 
 legend a {
-  color: #93c6e0;
+  color: yellow;
 }
