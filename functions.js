@@ -3,18 +3,32 @@ const scoreDisplay = document.querySelector(".scoreDisplay");
 const multiplierBtn = document.getElementById("clickMultiplier");
 const costMultiplierDisplay = document.getElementById("costMultiplierDisplay");
 const countMultiplierDisplay = document.getElementById("countMultiplierDisplay");
-const autoclickerBtn = document.getElementById("autoclickerBtn");
-const costAutoclickerDisplay = document.getElementById("costAutoclickerDisplay");
-const countAutoclickerDisplay = document.getElementById("countAutoclickerDisplay");
+const autoclickerElmo = document.getElementById("autoclickerElmoBtn");
+const costElmoDisplay = document.getElementById("costElmoDisplay");
+const countElmoDisplay = document.getElementById("countElmoDisplay");
+const autoclickerBirdie = document.getElementById("autoclickerBirdieBtn");
+const costBirdieDisplay = document.getElementById("costBirdieDisplay");
+const countBirdieDisplay = document.getElementById("countBirdieDisplay");
+const autoclickerOscar = document.getElementById("autoclickerOscarBtn");
+const costOscarDisplay = document.getElementById("costOscarDisplay");
+const countOscarDisplay = document.getElementById("countOscarDisplay");
+const autoclickerGrover = document.getElementById("autoclickerGroverBtn");
+const costGroverDisplay = document.getElementById("costGroverDisplay");
+const countGroverDisplay = document.getElementById("countGroverDisplay");
+const autoclickerErnie = document.getElementById("autoclickerErnieBtn");
+const costErnieDisplay = document.getElementById("costErnieDisplay");
+const countErnieDisplay = document.getElementById("countErnieDisplay");
 const bonusBtn = document.getElementById("bonusBtn");
 const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
+
 const multiplierValue = 2;
 let clickValue = 1;
 let costMultiplier = 15;
 let countMultiplier = 0;
-let costAutoclicker = 15;
-let countAutoclicker = 0;
+//Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
+const costAutoclickers = [15, 15, 15, 15, 15];
+const countAutoclickers = [0, 0, 0, 0, 0];
 let cookieSecond = 0;
 let costBonus = 1;
 let bool;
@@ -62,7 +76,7 @@ function checkScore(cost) {
     return false
   }
 }
-//Comportement du bouton multiplicateusr
+//Comportement du bouton multiplicateur
 multiplierBtn.addEventListener("click", function () {
   bool = checkScore(costMultiplier);
   if (bool) {
@@ -74,14 +88,66 @@ multiplierBtn.addEventListener("click", function () {
     updateScoreDisplay();
   }
 });
-//Comportement du bouton autoclicker
-autoclickerBtn.addEventListener("click", function () {
-  bool = checkScore(costAutoclicker);
+//Comportement du bouton autoclicker elmo
+autoclickerElmo.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[0]);
   if (bool) {
-    costAutoclicker = multiplyCost(costAutoclicker);
-    countAutoclicker++;
-    updateValue(costAutoclickerDisplay, costAutoclicker);
-    updateValue(countAutoclickerDisplay, countAutoclicker);
+    costAutoclickers[0] = multiplyCost(costAutoclickers[0]);
+    countAutoclickers[0]++;
+    updateValue(costElmoDisplay, costAutoclickers[0]);
+    updateValue(countElmoDisplay, countAutoclickers[0]);
+    setInterval(click, 1000);
+    cookieSecond += clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker birdie
+autoclickerBirdie.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[1]);
+  if (bool) {
+    costAutoclickers[1] = multiplyCost(costAutoclickers[1]);
+    countAutoclickers[1]++;
+    updateValue(costBirdieDisplay, costAutoclickers[1]);
+    updateValue(countBirdieDisplay, countAutoclickers[1]);
+    setInterval(click, 1000);
+    cookieSecond += clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker oscar
+autoclickerOscar.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[2]);
+  if (bool) {
+    costAutoclickers[2] = multiplyCost(costAutoclickers[2]);
+    countAutoclickers[2]++;
+    updateValue(costOscarDisplay, costAutoclickers[2]);
+    updateValue(countOscarDisplay, countAutoclickers[2]);
+    setInterval(click, 1000);
+    cookieSecond += clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker grover
+autoclickerGrover.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[3]);
+  if (bool) {
+    costAutoclickers[3] = multiplyCost(costAutoclickers[3]);
+    countAutoclickers[3]++;
+    updateValue(costGroverDisplay, costAutoclickers[3]);
+    updateValue(countGroverDisplay, countAutoclickers[3]);
+    setInterval(click, 1000);
+    cookieSecond += clickValue;
+    updateScoreDisplay();
+  }
+});
+//Comportement du bouton autoclicker ernie
+autoclickerErnie.addEventListener("click", function () {
+  bool = checkScore(costAutoclickers[4]);
+  if (bool) {
+    costAutoclickers[4] = multiplyCost(costAutoclickers[4]);
+    countAutoclickers[4]++;
+    updateValue(costErnieDisplay, costAutoclickers[4]);
+    updateValue(countErnieDisplay, countAutoclickers[4]);
     setInterval(click, 1000);
     cookieSecond += clickValue;
     updateScoreDisplay();
