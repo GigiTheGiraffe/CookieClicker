@@ -9,7 +9,6 @@ const countAutoclickerDisplay = document.getElementById("countAutoclickerDisplay
 const bonusBtn = document.getElementById("bonusBtn");
 const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
-
 const multiplierValue = 2;
 let clickValue = 1;
 let costMultiplier = 15;
