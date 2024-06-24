@@ -43,8 +43,9 @@ let clickValue = 1;
 const costMultipliers = [15, 15, 15, 15, 15, 15];
 const countMultipliers = [0, 0, 0, 0, 0, 0];
 //Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
-const costAutoclickers = [15, 15, 15, 15, 15];
+const costAutoclickers = [15, 100, 1100, 12000, 130000];
 const countAutoclickers = [0, 0, 0, 0, 0];
+const CpsAutoclicker = [1, 8, 47, 260, 1400];
 let cookieSecond = 0;
 let costBonus = 1;
 let bool;
@@ -55,6 +56,11 @@ let score = 0;
 //Ajoute le montant du click au score
 function click() {
   score += clickValue;
+  updateScoreDisplay();
+};
+//Cookie par seconde supplémentaire par autoclicker
+function Cpsclick(i) {
+  score += CpsAutoclicker[i];
   updateScoreDisplay();
 };
 //Mets à jour le label du score avec le nouveau montant
@@ -93,9 +99,8 @@ function checkScore(cost) {
   }
 };
 //fonction pour ajouter à la var cookieSecond et l'afficher CHANGER LE COOKIESECOND += CLICKVALUE PAR LA NOUVELLE ECONOMIE DE JUAN QUAND DISPO
-function cookieSecondAddShow() {
-  cookieSecond += clickValue;
-  console.log(cookieSecond);
+function cookieSecondAddShow(i) {
+  cookieSecond += CpsAutoclicker[i];
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
 };
 //Comportement du bouton multiplicateur pour le click
@@ -178,8 +183,8 @@ autoclickerElmo.addEventListener("click", function () {
     countAutoclickers[0]++;
     updateValue(costElmoDisplay, costAutoclickers[0]);
     updateValue(countElmoDisplay, countAutoclickers[0]);
-    setInterval(click, 1000);
-    cookieSecondAddShow();
+    setInterval(function() {Cpsclick(0)}, 1000);
+    cookieSecondAddShow(0);
     updateScoreDisplay();
   }
 });
@@ -191,8 +196,8 @@ autoclickerBirdie.addEventListener("click", function () {
     countAutoclickers[1]++;
     updateValue(costBirdieDisplay, costAutoclickers[1]);
     updateValue(countBirdieDisplay, countAutoclickers[1]);
-    setInterval(click, 1000);
-    cookieSecondAddShow();
+    setInterval(function() {Cpsclick(1)}, 1000);
+    cookieSecondAddShow(1);
     updateScoreDisplay();
   }
 });
@@ -204,8 +209,8 @@ autoclickerOscar.addEventListener("click", function () {
     countAutoclickers[2]++;
     updateValue(costOscarDisplay, costAutoclickers[2]);
     updateValue(countOscarDisplay, countAutoclickers[2]);
-    setInterval(click, 1000);
-    cookieSecondAddShow();
+    setInterval(function() {Cpsclick(2)}, 1000);
+    cookieSecondAddShow(2);
     updateScoreDisplay();
   }
 });
@@ -217,8 +222,8 @@ autoclickerGrover.addEventListener("click", function () {
     countAutoclickers[3]++;
     updateValue(costGroverDisplay, costAutoclickers[3]);
     updateValue(countGroverDisplay, countAutoclickers[3]);
-    setInterval(click, 1000);
-    cookieSecondAddShow();
+    setInterval(function() {Cpsclick(3)}, 1000);
+    cookieSecondAddShow(3);
     updateScoreDisplay();
   }
 });
@@ -230,8 +235,8 @@ autoclickerErnie.addEventListener("click", function () {
     countAutoclickers[4]++;
     updateValue(costErnieDisplay, costAutoclickers[4]);
     updateValue(countErnieDisplay, countAutoclickers[4]);
-    setInterval(click, 1000);
-    cookieSecondAddShow();
+    setInterval(function() {Cpsclick(4)}, 1000);
+    cookieSecondAddShow(4);
     updateScoreDisplay();
   }
 });
