@@ -113,6 +113,7 @@ main {
   margin-left: 8rem;
   margin-top: 15rem;
   display: block;
+  visibility: hidden;
   text-align: center;
   background-color: red;
   border-radius: 50%;

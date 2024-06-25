@@ -61,7 +61,7 @@ const costErnieMultiplierDisplay = document.getElementById(
 const countErnieMultiplierDisplay = document.getElementById(
   "countErnieMultiplierDisplay"
 );
-const multiplierValue = 10;
+const multiplierValue = 2;
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
 const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
@@ -71,11 +71,11 @@ const costAutoclickers = [15, 100, 1100, 12000, 130000];
 const countAutoclickers = [0, 0, 0, 0, 0];
 const CpsAutoclicker = [1, 8, 47, 260, 1400];
 let cookieSecond = 0;
-let costBonus = 1;
+let costBonus = 10;
 let bool;
 let bonusActivated = false;
 let bonusTimeInterval;
-let score = 10000;
+let score = 0;
 
 //Ajoute le montant du click au score
 function click() {
@@ -95,22 +95,17 @@ function updateScoreDisplay() {
 function updateValue(display, value) {
   display.textContent = value;
 }
-//fonction qui change la source d'une image en lui donnant une nouvelle source
-function changeSrcImg(image, source) {
-  image.src = source;
-}
 // fonction pour l'état de disabled d'un bouton en fonction de si activate vaut true ou false et de changer l'image.
-function toggleButton(button, image, source, activate) {
+function toggleButton(button, activate) {
   if (activate) {
     button.disabled = false;
   } else {
     button.disabled = true;
   }
-  changeSrcImg(image, source);
 }
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
-  return Math.floor(cost * 1.15);
+  return Math.floor(cost * 1.50);
 }
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
@@ -298,30 +293,32 @@ cookieBtn.addEventListener("click", () => {
 bonusBtn.addEventListener("click", () => {
   bool = checkScore(costBonus);
   if (bool && !bonusActivated) {
+    bonusTimeDisplay.style.visibility = "visible";
     bonusActivated = true;
     costBonus = multiplyCost(costBonus);
-    //updateValue(costBonusDisplay, costBonus);
+    updateValue(costBonusDisplay, costBonus);
     updateScoreDisplay();
     //augmentation du click de 200%
     clickValue = Math.floor(clickValue * 2);
     // Création de bonusTimeDisplay en secondes
     let bonusTime = 30;
-    //bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
+    bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
     //Décrémentation du bonusTimeDisplay
     bonusTimeInterval = setInterval(() => {
       bonusTime--;
       console.log(bonusTime);
-      //bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
+      bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
       //Arret et disparition du timer du bonus
       if (bonusTime === 0) {
         clearInterval(bonusTimeInterval);
-        //bonusTimeDisplay.textContent = "";
+        bonusTimeDisplay.textContent = "";
       }
     }, 1000);
     setTimeout(() => {
       //diminution du click de 200%
       clickValue = Math.floor(clickValue / 2);
       bonusActivated = false;
+      bonusTimeDisplay.style.visibility = "hidden";
     }, 30000);
   }
 });
