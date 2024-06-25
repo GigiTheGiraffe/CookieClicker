@@ -1,6 +1,6 @@
 const cookieBtn = document.querySelector(".cookieBtn");
 const scoreDisplay = document.querySelector(".scoreDisplay");
-const clickMultiplierBtn = document.getElementById("clickMultiplier");
+const ClickMultiplierBtn = document.getElementById("clickMultiplier");
 const costClickMultiplierDisplay = document.getElementById("costClickMultiplierDisplay");
 const countClickMultiplierDisplay = document.getElementById("countClickMultiplierDisplay");
 const autoclickerElmo = document.getElementById("autoclickerElmoBtn");
@@ -23,26 +23,37 @@ const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
 const cookieSecondDisplay = document.querySelector(".clickPerSecondDisplay");
 const elmoMultiplierBtn = document.getElementById("elmoMultiplier");
-const costElmoMultiplierDisplay = document.getElementById("costElmoMultiplierDisplay");
-const countElmoMultiplierDisplay = document.getElementById("countElmoMultiplierDisplay");
+const costElmoMultiplierDisplay = document.getElementById(
+  "costElmoMultiplierDisplay"
+);
+const countElmoMultiplierDisplay = document.getElementById(
+  "countElmoMultiplierDisplay"
+);
 const birdieMultiplierBtn = document.getElementById("birdieMultiplier");
-const costBirdieMultiplierDisplay = document.getElementById("costBirdieMultiplierDisplay");
-const countBirdieMultiplierDisplay = document.getElementById("countBirdieMultiplierDisplay");
+const costBirdieMultiplierDisplay = document.getElementById(
+  "costBirdieMultiplierDisplay"
+);
+const countBirdieMultiplierDisplay = document.getElementById(
+  "countBirdieMultiplierDisplay"
+);
 const oscarMultiplierBtn = document.getElementById("oscarMultiplier");
-const costOscarMultiplierDisplay = document.getElementById("costOscarMultiplierDisplay");
-const countOscarMultiplierDisplay = document.getElementById("countOscarMultiplierDisplay");
+const costOscarMultiplierDisplay = document.getElementById(
+  "costOscarMultiplierDisplay"
+);
+const countOscarMultiplierDisplay = document.getElementById(
+  "countOscarMultiplierDisplay"
+);
 const groverMultiplierBtn = document.getElementById("groverMultiplier");
-const costGroverMultiplierDisplay = document.getElementById("costGroverMultiplierDisplay");
-const countGroverMultiplierDisplay = document.getElementById("countGroverMultiplierDisplay");
+const costGroverMultiplierDisplay = document.getElementById(
+  "costGroverMultiplierDisplay"
+);
+const countGroverMultiplierDisplay = document.getElementById(
+  "countGroverMultiplierDisplay"
+);
 const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
 const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
 const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
-const multiplierValue = 2;
-const pseudo = document.getElementById("factoryName");
-const nomPatisserie = document.querySelector(".nomPatisserie");
-const hidePopUpBtn = document.getElementById("hidePopUp");
-const popUp = document.querySelector(".popUp");
-const showPopUpBtn = document.getElementById("showPopUp");
+const multiplierValue = 10;
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
 const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
@@ -63,14 +74,7 @@ let money = false;
 function click() {
   score += clickValue;
   updateScoreDisplay();
-}
-//Mettre le pseudo du joueur sur le html
-function showPseudo()  {
-  console.log(pseudo.value);
-  if (pseudo.value.length > 0) {
-    nomPatisserie.textContent = pseudo.value;
-  }
-}
+};
 //Cookie par seconde supplémentaire par autoclicker
 function Cpsclick(i) {
   score += CpsAutoclicker[i];
@@ -79,37 +83,30 @@ function Cpsclick(i) {
 //Mets à jour le label du score avec le nouveau montant
 function updateScoreDisplay() {
   scoreDisplay.textContent = `Total : ${score}`;
-  toggleButton(autoclickerElmo, costAutoclickers[0]);
-  toggleButton(autoclickerBirdie, costAutoclickers[1]);
-  toggleButton(autoclickerErnie, costAutoclickers[4]);
-  toggleButton(autoclickerGrover, costAutoclickers[3]);
-  toggleButton(autoclickerOscar, costAutoclickers[2]);
-  toggleButton(elmoMultiplierBtn, costMultipliers[1]);
-  toggleButton(clickMultiplierBtn, costMultipliers[0]);
-  toggleButton(birdieMultiplierBtn, costMultipliers[2]);
-  toggleButton(groverMultiplierBtn, costMultipliers[4]);
-  toggleButton(oscarMultiplierBtn, costMultipliers[3]);
-  toggleButton(ernieMultiplierBtn, costMultipliers[5]);
-  toggleButton(bonusBtn, costBonus);
-}
+};
 //fonction générique pour changer la valeur affichée dans un label
 function updateValue(display, value) {
   display.textContent = value;
-}
-// fonction pour l'état de disabled d'un bouton en fonction de si activate vaut true ou false et de changer l'image.
-function toggleButton(button, costButton) {
-  if (score >= costButton) {
+};
+//fonction qui change la source d'une image en lui donnant une nouvelle source
+function changeSrcImg(image, source) {
+  image.src = source
+};
+// fonction pour l'état de disabled d'un bouton en fonction de si activate vaut true ou false et de changer l'image. 
+function toggleButton(button, image, source, activate) {
+  if (activate) {
     button.disabled = false;
     button.classList.remove("btnDisabled");
   } else {
     button.disabled = true;
     button.classList.add("btnDisabled");
   }
-}
+  changeSrcImg(image, source);
+};
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
-  return Math.floor(cost * 1.5);
-}
+  return Math.floor(cost * 5);
+};
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
   if (score >= cost) {
@@ -128,13 +125,7 @@ function cookieSecondShow() {
     countAutoclickers[3] * CpsAutoclicker[3] +
     countAutoclickers[4] * CpsAutoclicker[4];
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
-}
-//function pour savoir si le joueur a assez pour acheter le bouton bonus
-function enoughMoney(cost) {
-  if (score >= cost) {
-    return true;
-  }
-}
+};
 //Comportement du bouton multiplicateur pour le click
 clickMultiplierBtn.addEventListener("click", function () {
   bool = checkScore(costMultipliers[0]);
@@ -331,8 +322,8 @@ bonusBtn.addEventListener("click", () => {
     bonusTimeInterval = setInterval(() => {
       bonusTime--;
       console.log(bonusTime);
-      bonusTimeDisplay.textContent = `${bonusTime}s \n Bonus Click : 200%`;
-      //Arret et disparition du timer du bonus
+      //bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
+      //Arret et disparition du timer du bonus 
       if (bonusTime === 0) {
         clearInterval(bonusTimeInterval);
         bonusTimeDisplay.textContent = "";
