@@ -33,6 +33,64 @@ body {
   background-image: url(assets/scribble-light.png);
 }
 
+/*
+#popUpBG {
+  background-image: url("assets/sesam_popup.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0);
+  z-index: 98;
+  display: none;
+}
+.tuto_Btn {
+  position: absolute;
+  bottom: 30px;
+  right: 10px;
+  padding: 10px 20px;
+  background-color: #1d6185;
+  color: white;
+  border-radius: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 59;
+}
+#popUpBG.open {
+  display: block !important;
+}
+.popUp {
+  position: absolute;
+  max-width: 600px;
+  padding: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #44903f;
+  border-style: double;
+  border-color: #c6ab39;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+.popUp p {
+  margin: 20px 0;
+}
+.popUpExit {
+  position: absolute;
+  top: -0;
+  right: -0;
+  text-decoration: none;
+  color: black;
+  background: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+} 
+  */
+
 header {
   position: relative;
   display: flex;
@@ -110,16 +168,33 @@ main {
 
 #bonusTimeDisplay {
   position: absolute;
-  margin-left: 8rem;
-  margin-top: 15rem;
+  margin-left: 9rem;
+  margin-top: 14rem;
   display: block;
   visibility: hidden;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+  color: yellow;
   text-align: center;
-  background-color: red;
+  align-content: center;
+
   border-radius: 50%;
-  height: 302px;
-  width: 310px;
+  height: 300px;
+  width: 300px;
   z-index: 1;
+  font-family: "Merriweather-Regular.ttf";
 }
 
 #bonusBtn {
@@ -138,6 +213,8 @@ main {
   font-family: "Merriweather-Regular.ttf";
   color: yellow;
   position: absolute;
+  width: 130px;
+  text-align: center;
   background: none;
   border: none;
   z-index: 1;
@@ -179,7 +256,7 @@ main {
   flex-direction: column;
   margin: 0 auto;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 90px;
   height: 90px;
   border-style: inset;
@@ -190,7 +267,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #clickMultiplier {
@@ -237,7 +314,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #costClickMultiplierDisplay,
@@ -344,7 +421,7 @@ main {
   margin: auto;
   max-height: 110px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 .autoclickShop #costElmoDisplay,
@@ -380,7 +457,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 
@@ -418,4 +495,4 @@ legend a {
 
 .bonusBtn {
   animation: rotation 50s infinite linear;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */
