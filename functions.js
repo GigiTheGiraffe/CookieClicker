@@ -42,6 +42,8 @@ const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
 const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
 const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
 const multiplierValue = 2;
+const pseudo = document.getElementById("factoryName");
+const nomPatisserie = document.querySelector(".nomPatisserie");
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
 const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
@@ -62,6 +64,10 @@ let money = false;
 function click() {
   score += clickValue;
   updateScoreDisplay();
+}
+//Mettre le pseudo du joueur sur le html
+function showPseudo()  {
+ nomPatisserie.textContent = pseudo;
 }
 //Afficher la popUp.
 function togglePopup(){
