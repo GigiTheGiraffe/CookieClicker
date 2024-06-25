@@ -285,7 +285,10 @@ cookieBtn.addEventListener("click", () => {
   //changer la valeur du score
   updateScoreDisplay();
 });
-
+//Quand on clique sur le timer, il n'empeche plus le joueur d'acceder au cookie
+bonusTimeDisplay.addEventListener("click", () => {
+  click();
+});
 //comportement du bouton bonus
 //LE BONUS EST FIXE A 1 COOKIE AU costBonus
 //LES // DES COMMENTAIRES SUR LES LIGNES 107 113 118 123 DOIVENT ETRE ENLEVEES QUE QUAND LES ZONES SONT CREES DANS LE HTML
