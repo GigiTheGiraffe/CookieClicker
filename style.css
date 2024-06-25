@@ -15,7 +15,6 @@
 }
 /* SASS GLOBAL VARIABLES */
 /*###############################################*/
-
 /* LAYOUT GENERAL */
 body {
   margin: 0;
@@ -52,8 +51,8 @@ h1 {
 
 .nomPatisserie {
   position: absolute;
-  margin-left: 55%;
-  top: 5px;
+  left: 55%;
+  top: 180px;
   font-family: "HomemadeApple-Regular.ttf", serif;
   font-size: 8rem;
   line-height: 6rem;
@@ -88,8 +87,8 @@ main {
 }
 
 .cookieBtn {
-  position: relative;
-  margin: 15rem 8rem;
+  position: absolute;
+  margin: 15rem 6rem;
   background: none;
   border-radius: 50%;
   border: none;
@@ -107,33 +106,16 @@ main {
 
 #bonusTimeDisplay {
   position: absolute;
-  margin-left: 9rem;
-  margin-top: 14rem;
-  display: block;
-  visibility: hidden;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0)
-  );
-  color: yellow;
+  margin: 16rem 7rem;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: yellow;
+  font-size: 2rem;
   align-content: center;
-
   border-radius: 50%;
-  height: 300px;
-  width: 300px;
+  height: 275px;
+  width: 275px;
   z-index: 1;
-  font-family: "Merriweather-Regular.ttf", serif;
 }
 
 #bonusBtn {
@@ -149,15 +131,14 @@ main {
 }
 
 #costBonusDisplay {
-  font-family: "Merriweather-Regular.ttf";
+  font-family: "Merriweather-Regular.ttf", serif;
   color: yellow;
+  font-weight: 900;
   position: absolute;
-  width: 130px;
-  text-align: center;
   background: none;
   border: none;
   z-index: 1;
-  left: 88%;
+  left: 92%;
   top: -20px;
 }
 
@@ -187,7 +168,6 @@ main {
   white-space: nowrap;
   background-image: url(assets/lined-paper-2.png);
   /* BUTTONS ACTIVE PROPERTIES */
-  /* */
 }
 .multiplierShop button {
   position: relative;
@@ -195,7 +175,7 @@ main {
   flex-direction: column;
   margin: 0 auto;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   width: 90px;
   height: 90px;
   border-style: inset;
@@ -206,7 +186,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #clickMultiplier {
@@ -253,7 +233,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #costClickMultiplierDisplay,
@@ -285,6 +265,9 @@ main {
   width: 90%;
   margin: 0;
   text-align: end;
+}
+.multiplierShop button:disabled {
+  background-color: rgb(1, 48, 48);
 }
 
 .tooltip .tooltiptext {
@@ -357,7 +340,7 @@ main {
   margin: auto;
   max-height: 110px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 .autoclickShop #costElmoDisplay,
@@ -393,7 +376,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 
@@ -429,9 +412,9 @@ legend a {
   animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
 }
 
-.bonusBtn {
+#bonusBtn {
   animation: rotation 50s infinite linear;
-} /*# sourceMappingURL=style.css.map */
+}
 
 .btnDisabled {
   background-color: rgb(1, 48, 48);
@@ -447,9 +430,22 @@ legend a {
   background-image: url("./assets/sesam_popup.jpg");
   background-size: cover;
 }
+
 .popUpText {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+#showPopUp {
+  position: absolute;
+  z-index: 1;
+  background: none;
+  border: dotted 2px yellow;
+  font-family: "HomemadeApple-Regular.ttf", serif;
+  font-size: 2rem;
+  color: yellow;
+  left: 85%;
+  top: 81.5%;
+}/*# sourceMappingURL=style.css.map */

@@ -24,7 +24,6 @@
 
 /*###############################################*/
 
-
 /* LAYOUT GENERAL */
 
 body {
@@ -62,8 +61,8 @@ h1 {
 
 .nomPatisserie {
   position: absolute;
-  margin-left: 55%;
-  top: 5px;
+  left: 55%;
+  top: 180px;
   font-family: "HomemadeApple-Regular.ttf", serif;
   font-size: 8rem;
   line-height: 6rem;
@@ -96,8 +95,8 @@ main {
 }
 
 .cookieBtn {
-  position: relative;
-  margin: 15rem 8rem;
+  position: absolute;
+  margin: 15rem 6rem;
   background: none;
   border-radius: 50%;
   border: none;
@@ -115,14 +114,15 @@ main {
 
 #bonusTimeDisplay {
   position: absolute;
-  margin-left: 8rem;
-  margin-top: 15rem;
-  display: block;
+  margin: 16rem 7rem;
   text-align: center;
-  background-color: red;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: yellow;
+  font-size: 2rem;
+  align-content: center;
   border-radius: 50%;
-  height: 302px;
-  width: 310px;
+  height: 275px;
+  width: 275px;
   z-index: 1;
 }
 
@@ -139,13 +139,14 @@ main {
 }
 
 #costBonusDisplay {
-  font-family: "Merriweather-Regular.ttf";
+  font-family: "Merriweather-Regular.ttf", serif;
   color: yellow;
+  font-weight: 900;
   position: absolute;
   background: none;
   border: none;
   z-index: 1;
-  left: 88%;
+  left: 92%;
   top: -20px;
 }
 
@@ -285,7 +286,6 @@ main {
       margin-left: -27rem;
     }
   }
-  /* */
 
   img {
     @include imageMultiplierDesign();
@@ -412,9 +412,6 @@ main {
     }
   }
 
-  button:disabled {
-  }
-
   #costElmoDisplay,
   #costBirdieDisplay,
   #costOscarDisplay,
@@ -469,6 +466,39 @@ legend a {
   animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
 }
 
-.bonusBtn {
+#bonusBtn {
   animation: rotation 50s infinite linear;
+}
+
+.btnDisabled {
+  background-color: rgb(1, 48, 48);
+}
+
+.popUp {
+  display: block;
+  visibility: visible;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/sesam_popup.jpg");
+  background-size: cover;
+}
+.popUpText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#showPopUp {
+  position: absolute;
+  z-index: 1;
+  background: none;
+  border: dotted 2px yellow;
+  font-family: "HomemadeApple-Regular.ttf", serif;
+  font-size: 2rem;
+  color: yellow;
+  left: 85%;
+  top: 81.5%;
 }
