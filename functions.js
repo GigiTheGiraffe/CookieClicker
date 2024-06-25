@@ -86,7 +86,7 @@ function toggleButton(button, image, source, activate) {
 };
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
-  return Math.floor(cost * 1.15);
+  return Math.floor(cost * 1.50);
 };
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
