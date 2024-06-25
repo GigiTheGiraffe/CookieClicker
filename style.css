@@ -53,6 +53,17 @@ h1 {
   text-shadow: 3px 4px 5px #000;
 }
 
+.nomPatisserie {
+  position: absolute;
+  margin-left: 55%;
+  top: 5px;
+  font-family: "HomemadeApple-Regular.ttf", serif;
+  font-size: 8rem;
+  line-height: 6rem;
+  color: rgb(86, 192, 234);
+  text-shadow: 3px 4px 5px #000;
+}
+
 main {
   position: relative;
   display: flex;
@@ -80,9 +91,6 @@ main {
 }
 
 .cookieBtn {
-  padding: 0;
-  max-height: 302px;
-  max-width: 310px;
   position: relative;
   margin: 15rem 8rem;
   background: none;
@@ -100,6 +108,19 @@ main {
   opacity: 1;
 }
 
+#bonusTimeDisplay {
+  position: absolute;
+  margin-left: 8rem;
+  margin-top: 15rem;
+  display: block;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  height: 302px;
+  width: 310px;
+  z-index: 1;
+}
+
 #bonusBtn {
   position: absolute;
   background: none;
@@ -110,6 +131,17 @@ main {
 }
 #bonusBtn img {
   width: 150px;
+}
+
+#costBonusDisplay {
+  font-family: "Merriweather-Regular.ttf";
+  color: yellow;
+  position: absolute;
+  background: none;
+  border: none;
+  z-index: 1;
+  left: 88%;
+  top: -20px;
 }
 
 /* ZONE DROITE */
