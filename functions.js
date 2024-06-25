@@ -63,6 +63,11 @@ function click() {
   score += clickValue;
   updateScoreDisplay();
 }
+//Afficher la popUp.
+function togglePopup(){
+  let popup = document.querySelector("#popUpBG");
+  popup.classList.toggle("open");
+}
 //Cookie par seconde supplémentaire par autoclicker
 function Cpsclick(i) {
   score += CpsAutoclicker[i];
@@ -220,7 +225,6 @@ autoclickerElmo.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[0])
   }
 });
 //Comportement du bouton autoclicker birdie
@@ -236,7 +240,6 @@ autoclickerBirdie.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[1])
   }
 });
 //Comportement du bouton autoclicker oscar
@@ -252,7 +255,6 @@ autoclickerOscar.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[2])
   }
 });
 //Comportement du bouton autoclicker grover
@@ -268,7 +270,6 @@ autoclickerGrover.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[3])
   }
 });
 //Comportement du bouton autoclicker ernie
@@ -284,7 +285,6 @@ autoclickerErnie.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[4])
   }
 });
 //Comportement du cookie cliquable
