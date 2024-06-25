@@ -118,7 +118,7 @@ function toggleButton(button, costButton) {
 }
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
-  return Math.floor(cost * 1.50);
+  return Math.floor(cost * 1.5);
 }
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
@@ -325,12 +325,12 @@ bonusBtn.addEventListener("click", () => {
     clickValue = Math.floor(clickValue * 2);
     // Création de bonusTimeDisplay en secondes
     let bonusTime = 30;
-    bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
+    bonusTimeDisplay.textContent = `${bonusTime}s \n Bonus Click : 200%`;
     //Décrémentation du bonusTimeDisplay
     bonusTimeInterval = setInterval(() => {
       bonusTime--;
       console.log(bonusTime);
-      bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
+      bonusTimeDisplay.textContent = `${bonusTime}s \n Bonus Click : 200%`;
       //Arret et disparition du timer du bonus
       if (bonusTime === 0) {
         clearInterval(bonusTimeInterval);
