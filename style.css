@@ -194,7 +194,7 @@ main {
   height: 300px;
   width: 300px;
   z-index: 1;
-  font-family: "Merriweather-Regular.ttf";
+  font-family: "Merriweather-Regular.ttf", serif;
 }
 
 #bonusBtn {
@@ -347,9 +347,6 @@ main {
   margin: 0;
   text-align: end;
 }
-.multiplierShop button:disabled {
-  background-color: rgb(1, 48, 48);
-}
 
 .tooltip .tooltiptext {
   position: absolute;
@@ -496,3 +493,7 @@ legend a {
 .bonusBtn {
   animation: rotation 50s infinite linear;
 } /*# sourceMappingURL=style.css.map */
+
+.btnDisabled {
+  background-color: rgb(1, 48, 48);
+}
