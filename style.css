@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* IMPORTED FONTS */
 @font-face {
   font-family: "Merriweather-Regular.ttf";
@@ -88,6 +89,7 @@ main {
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
 }
 
 #zoneCookie img {
@@ -347,7 +349,6 @@ main {
   -o-object-fit: cover;
      object-fit: cover;
   justify-self: start;
-  object-fit: cover;
 }
 
 /* FOOTER */
@@ -368,7 +369,7 @@ legend {
 
 legend a {
   color: yellow;
-}/*# sourceMappingURL=style.css.map */
+}
 
 @keyframes rotation {
   from {
@@ -378,7 +379,10 @@ legend a {
     transform: rotate(360deg);
   }
 }
-
-.cookieBtn{
+.cookieBtn {
   animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
 }
+
+.bonusBtn {
+  animation: rotation 50s infinite linear;
+}/*# sourceMappingURL=style.css.map */
