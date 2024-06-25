@@ -1,6 +1,6 @@
 const cookieBtn = document.querySelector(".cookieBtn");
 const scoreDisplay = document.querySelector(".scoreDisplay");
-const ClickMultiplierBtn = document.getElementById("clickMultiplier");
+const clickMultiplierBtn = document.getElementById("clickMultiplier");
 const costClickMultiplierDisplay = document.getElementById(
   "costClickMultiplierDisplay"
 );
@@ -91,14 +91,26 @@ function Cpsclick(i) {
 //Mets à jour le label du score avec le nouveau montant
 function updateScoreDisplay() {
   scoreDisplay.textContent = `Total : ${score}`;
+  toggleButton(autoclickerElmo, costAutoclickers[0]);
+  toggleButton(autoclickerBirdie, costAutoclickers[1]);
+  toggleButton(autoclickerErnie, costAutoclickers[4]);
+  toggleButton(autoclickerGrover, costAutoclickers[3]);
+  toggleButton(autoclickerOscar, costAutoclickers[2]);
+  toggleButton(elmoMultiplierBtn, costMultipliers[1]);
+  toggleButton(clickMultiplierBtn, costMultipliers[0]);
+  toggleButton(birdieMultiplierBtn, costMultipliers[2]);
+  toggleButton(groverMultiplierBtn, costMultipliers[4]);
+  toggleButton(oscarMultiplierBtn, costMultipliers[3]);
+  toggleButton(ernieMultiplierBtn, costMultipliers[5]);
+  toggleButton(bonusBtn, costBonus);
 }
 //fonction générique pour changer la valeur affichée dans un label
 function updateValue(display, value) {
   display.textContent = value;
 }
 // fonction pour l'état de disabled d'un bouton en fonction de si activate vaut true ou false et de changer l'image.
-function toggleButton(button, activate) {
-  if (activate) {
+function toggleButton(button, costButton) {
+  if (score >= costButton) {
     button.disabled = false;
   } else {
     button.disabled = true;
@@ -134,7 +146,7 @@ function enoughMoney(cost) {
   }
 }
 //Comportement du bouton multiplicateur pour le click
-ClickMultiplierBtn.addEventListener("click", function () {
+clickMultiplierBtn.addEventListener("click", function () {
   bool = checkScore(costMultipliers[0]);
   if (bool) {
     costMultipliers[0] = multiplyCost(costMultipliers[0]);
