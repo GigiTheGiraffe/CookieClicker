@@ -103,8 +103,10 @@ function updateValue(display, value) {
 function toggleButton(button, costButton) {
   if (score >= costButton) {
     button.disabled = false;
+    button.classList.add("btnDisabled");
   } else {
     button.disabled = true;
+    button.classList.remove("btnDisabled");
   }
 }
 //Multiplication du cout du bouton
