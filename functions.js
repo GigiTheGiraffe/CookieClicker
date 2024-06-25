@@ -1,12 +1,8 @@
 const cookieBtn = document.querySelector(".cookieBtn");
 const scoreDisplay = document.querySelector(".scoreDisplay");
 const clickMultiplierBtn = document.getElementById("clickMultiplier");
-const costClickMultiplierDisplay = document.getElementById(
-  "costClickMultiplierDisplay"
-);
-const countClickMultiplierDisplay = document.getElementById(
-  "countClickMultiplierDisplay"
-);
+const costClickMultiplierDisplay = document.getElementById("costClickMultiplierDisplay");
+const countClickMultiplierDisplay = document.getElementById("countClickMultiplierDisplay");
 const autoclickerElmo = document.getElementById("autoclickerElmoBtn");
 const costElmoDisplay = document.getElementById("costElmoDisplay");
 const countElmoDisplay = document.getElementById("countElmoDisplay");
@@ -44,6 +40,9 @@ const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplie
 const multiplierValue = 2;
 const pseudo = document.getElementById("factoryName");
 const nomPatisserie = document.querySelector(".nomPatisserie");
+const hidePopUpBtn = document.getElementById("hidePopUp");
+const popUp = document.querySelector(".popUp");
+const showPopUpBtn = document.getElementById("showPopUp");
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
 const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
@@ -67,12 +66,10 @@ function click() {
 }
 //Mettre le pseudo du joueur sur le html
 function showPseudo()  {
- nomPatisserie.textContent = pseudo;
-}
-//Afficher la popUp.
-function togglePopup(){
-  let popup = document.querySelector("#popUpBG");
-  popup.classList.toggle("open");
+  console.log(pseudo.value);
+  if (pseudo.value.length > 0) {
+    nomPatisserie.textContent = pseudo.value;
+  }
 }
 //Cookie par seconde supplémentaire par autoclicker
 function Cpsclick(i) {
@@ -305,6 +302,15 @@ cookieBtn.addEventListener("click", () => {
 //Quand on clique sur le timer, il n'empeche plus le joueur d'acceder au cookie
 bonusTimeDisplay.addEventListener("click", () => {
   click();
+});
+//Comportement bouton sur le popup
+hidePopUpBtn.addEventListener("click", () => {
+  showPseudo();
+  popUp.style.visibility = "hidden";
+});
+//Bouton pour montrer le popup
+showPopUpBtn.addEventListener("click", () => {
+  popUp.style.visibility = "visible";
 });
 //comportement du bouton bonus
 bonusBtn.addEventListener("click", () => {

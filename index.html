@@ -17,16 +17,16 @@
     <!-- Span pour nom a completer -->
     <h1>La cookisserie de </h1>
     <br>
-    <span class="nomPatisserie"></span>
+    <span class="nomPatisserie">Cookiero</span>
   </header>
 
   <section>
-    <button onclick="togglePopup()" class="tuto_Btn">Revoir le Tutoriel</button>
+    <button id="showPopUp">Revoir le Tutoriel</button>
   </section>
   
 
-<section id = popUpBG >
   <section class="popUp">
+    <article class="popUpText">
     <p>Bienvenue à Monster Cookie Clicker </p>
     <p>Dans Cookie Clicker, l'objectif est simple et amusant : </p>
     <ul>
@@ -39,14 +39,13 @@
     <p>Et souvenez-vous, comme dans la vraie vie, on travaille sans fin juste pour acheter plus de trucs. <br>
       Amusant, non ?
     </p>
-    <label for="factoryName">Veuillez entrer votre pseudo!</label>
-    <input id="factoryName" type="text" placeholder="Votre pseudo" required>
-
-    <button class="popUpExit" href="javascript:void(0)" onclick="togglePopup()">Commencer à jouer</button>
-  </section>
+    <label for="factoryName">Veuillez entrer votre pseudo! (10 charactères maximum)</label>
+    <input id="factoryName" type="text" maxlength="10" placeholder="Votre pseudo">
+    <button id="hidePopUp">Commencer à jouer</button>
+  </article>
+    </section>
   
   <main>
-
     <section id="zoneCookie">
       <img src="assets/cookieMonster.webp" class="cookiePose" alt="cookieMonster">
      
