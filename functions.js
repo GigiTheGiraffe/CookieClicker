@@ -27,40 +27,20 @@ const costBonusDisplay = document.getElementById("costBonusDisplay");
 const bonusTimeDisplay = document.getElementById("bonusTimeDisplay");
 const cookieSecondDisplay = document.querySelector(".clickPerSecondDisplay");
 const elmoMultiplierBtn = document.getElementById("elmoMultiplier");
-const costElmoMultiplierDisplay = document.getElementById(
-  "costElmoMultiplierDisplay"
-);
-const countElmoMultiplierDisplay = document.getElementById(
-  "countElmoMultiplierDisplay"
-);
+const costElmoMultiplierDisplay = document.getElementById("costElmoMultiplierDisplay");
+const countElmoMultiplierDisplay = document.getElementById("countElmoMultiplierDisplay");
 const birdieMultiplierBtn = document.getElementById("birdieMultiplier");
-const costBirdieMultiplierDisplay = document.getElementById(
-  "costBirdieMultiplierDisplay"
-);
-const countBirdieMultiplierDisplay = document.getElementById(
-  "countBirdieMultiplierDisplay"
-);
+const costBirdieMultiplierDisplay = document.getElementById("costBirdieMultiplierDisplay");
+const countBirdieMultiplierDisplay = document.getElementById("countBirdieMultiplierDisplay");
 const oscarMultiplierBtn = document.getElementById("oscarMultiplier");
-const costOscarMultiplierDisplay = document.getElementById(
-  "costOscarMultiplierDisplay"
-);
-const countOscarMultiplierDisplay = document.getElementById(
-  "countOscarMultiplierDisplay"
-);
+const costOscarMultiplierDisplay = document.getElementById("costOscarMultiplierDisplay");
+const countOscarMultiplierDisplay = document.getElementById("countOscarMultiplierDisplay");
 const groverMultiplierBtn = document.getElementById("groverMultiplier");
-const costGroverMultiplierDisplay = document.getElementById(
-  "costGroverMultiplierDisplay"
-);
-const countGroverMultiplierDisplay = document.getElementById(
-  "countGroverMultiplierDisplay"
-);
+const costGroverMultiplierDisplay = document.getElementById("costGroverMultiplierDisplay");
+const countGroverMultiplierDisplay = document.getElementById("countGroverMultiplierDisplay");
 const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
-const costErnieMultiplierDisplay = document.getElementById(
-  "costErnieMultiplierDisplay"
-);
-const countErnieMultiplierDisplay = document.getElementById(
-  "countErnieMultiplierDisplay"
-);
+const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
+const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
 const multiplierValue = 2;
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
@@ -168,6 +148,7 @@ elmoMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[0] = multiplierValue * CpsAutoclicker[0];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[0])
   }
 });
 //Comportement du bouton multiplicateur pour birdie
@@ -181,6 +162,7 @@ birdieMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[1] = multiplierValue * CpsAutoclicker[1];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[1])
   }
 });
 //Comportement du bouton multiplicateur pour oscar
@@ -194,6 +176,7 @@ oscarMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[2] = multiplierValue * CpsAutoclicker[2];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[2])
   }
 });
 //Comportement du bouton multiplicateur pour grover
@@ -207,6 +190,7 @@ groverMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[3] = multiplierValue * CpsAutoclicker[3];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[3])
   }
 });
 //Comportement du bouton multiplicateur pour ernie
@@ -220,6 +204,7 @@ ernieMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[4] = multiplierValue * CpsAutoclicker[4];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[4])
   }
 });
 //Comportement du bouton autoclicker elmo
@@ -235,6 +220,7 @@ autoclickerElmo.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[0])
   }
 });
 //Comportement du bouton autoclicker birdie
@@ -250,6 +236,7 @@ autoclickerBirdie.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[1])
   }
 });
 //Comportement du bouton autoclicker oscar
@@ -265,6 +252,7 @@ autoclickerOscar.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[2])
   }
 });
 //Comportement du bouton autoclicker grover
@@ -280,6 +268,7 @@ autoclickerGrover.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[3])
   }
 });
 //Comportement du bouton autoclicker ernie
@@ -295,6 +284,7 @@ autoclickerErnie.addEventListener("click", function () {
     }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[4])
   }
 });
 //Comportement du cookie cliquable
@@ -309,9 +299,6 @@ bonusTimeDisplay.addEventListener("click", () => {
   click();
 });
 //comportement du bouton bonus
-//LE BONUS EST FIXE A 1 COOKIE AU costBonus
-//LES // DES COMMENTAIRES SUR LES LIGNES 107 113 118 123 DOIVENT ETRE ENLEVEES QUE QUAND LES ZONES SONT CREES DANS LE HTML
-//LE CONSOLE.LOG DE LA LIGNE 118 DOIT ETRE ENLEVE QUAND TOUTES LES ZONES SONT LIEES ENTRE ELLE VIA JS ET CREES SUR LE HTML
 bonusBtn.addEventListener("click", () => {
   money = enoughMoney(costBonus);
   if (money && !bonusActivated) {
@@ -329,7 +316,6 @@ bonusBtn.addEventListener("click", () => {
     //Décrémentation du bonusTimeDisplay
     bonusTimeInterval = setInterval(() => {
       bonusTime--;
-      console.log(bonusTime);
       bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
       //Arret et disparition du timer du bonus
       if (bonusTime === 0) {
