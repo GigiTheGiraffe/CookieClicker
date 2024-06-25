@@ -1,6 +1,6 @@
 const cookieBtn = document.querySelector(".cookieBtn");
 const scoreDisplay = document.querySelector(".scoreDisplay");
-const ClickMultiplierBtn = document.getElementById("clickMultiplier");
+const clickMultiplierBtn = document.getElementById("clickMultiplier");
 const costClickMultiplierDisplay = document.getElementById("costClickMultiplierDisplay");
 const countClickMultiplierDisplay = document.getElementById("countClickMultiplierDisplay");
 const autoclickerElmo = document.getElementById("autoclickerElmoBtn");
@@ -37,74 +37,106 @@ const countGroverMultiplierDisplay = document.getElementById("countGroverMultipl
 const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
 const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
 const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
-const multiplierValue = 10;
+const multiplierValue = 2;
+const pseudo = document.getElementById("factoryName");
+const nomPatisserie = document.querySelector(".nomPatisserie");
+const hidePopUpBtn = document.getElementById("hidePopUp");
+const popUp = document.querySelector(".popUp");
+const showPopUpBtn = document.getElementById("showPopUp");
 let clickValue = 1;
 //Les arrays reprennent touts les couts et les comptages des multipliers dans cet ordre d'index : 0 = clickMultiplier, 1 = elmo, 2 = birdie, 3 = oscar, 4 = grover, 5 = ernie
-const costMultipliers = [1000, 1000, 10000, 100000, 300000, 500000];
+const costMultipliers = [100, 1000, 10000, 100000, 300000, 500000];
 const countMultipliers = [0, 0, 0, 0, 0, 0];
 //Les arrays reprennent touts les couts et les comptages des autoclickers dans cet ordre d'index : 0 = elmo, 1 = birdie, 2 = oscar, 3 = grover, 4 = ernie
 const costAutoclickers = [15, 100, 1100, 12000, 130000];
 const countAutoclickers = [0, 0, 0, 0, 0];
 const CpsAutoclicker = [1, 8, 47, 260, 1400];
 let cookieSecond = 0;
-let costBonus = 1;
+let costBonus = 10;
 let bool;
 let bonusActivated = false;
 let bonusTimeInterval;
 let score = 0;
+let money = false;
 
 //Ajoute le montant du click au score
 function click() {
   score += clickValue;
   updateScoreDisplay();
-};
+}
+//Mettre le pseudo du joueur sur le html
+function showPseudo()  {
+  console.log(pseudo.value);
+  if (pseudo.value.length > 0) {
+    nomPatisserie.textContent = pseudo.value;
+  }
+}
 //Cookie par seconde supplémentaire par autoclicker
 function Cpsclick(i) {
   score += CpsAutoclicker[i];
   updateScoreDisplay();
-};
+}
 //Mets à jour le label du score avec le nouveau montant
 function updateScoreDisplay() {
   scoreDisplay.textContent = `Total : ${score}`;
-};
+  toggleButton(autoclickerElmo, costAutoclickers[0]);
+  toggleButton(autoclickerBirdie, costAutoclickers[1]);
+  toggleButton(autoclickerErnie, costAutoclickers[4]);
+  toggleButton(autoclickerGrover, costAutoclickers[3]);
+  toggleButton(autoclickerOscar, costAutoclickers[2]);
+  toggleButton(elmoMultiplierBtn, costMultipliers[1]);
+  toggleButton(clickMultiplierBtn, costMultipliers[0]);
+  toggleButton(birdieMultiplierBtn, costMultipliers[2]);
+  toggleButton(groverMultiplierBtn, costMultipliers[4]);
+  toggleButton(oscarMultiplierBtn, costMultipliers[3]);
+  toggleButton(ernieMultiplierBtn, costMultipliers[5]);
+  toggleButton(bonusBtn, costBonus);
+}
 //fonction générique pour changer la valeur affichée dans un label
 function updateValue(display, value) {
   display.textContent = value;
-};
-//fonction qui change la source d'une image en lui donnant une nouvelle source
-function changeSrcImg(image, source) {
-  image.src = source
-};
-// fonction pour l'état de disabled d'un bouton en fonction de si activate vaut true ou false et de changer l'image. 
-function toggleButton(button, image, source, activate) {
-  if (activate) {
+}
+// fonction pour l'état de disabled d'un bouton en fonction de si activate vaut true ou false et de changer l'image.
+function toggleButton(button, costButton) {
+  if (score >= costButton) {
     button.disabled = false;
+    button.classList.remove("btnDisabled");
   } else {
     button.disabled = true;
+    button.classList.add("btnDisabled");
   }
-  changeSrcImg(image, source);
-};
+}
 //Multiplication du cout du bouton
 function multiplyCost(cost) {
-  return Math.floor(cost * 5);
-};
+  return Math.floor(cost * 1.5);
+}
 //Conditionement pour savoir si le joueur est assez riche pour realiser un achat et lui enlever le montant si vrai :
 function checkScore(cost) {
   if (score >= cost) {
     score -= cost;
-    return true
+    return true;
+  } else {
+    return false;
   }
-  else {
-    return false
-  }
-};
+}
 //fonction pour ajouter à la var cookieSecond et l'afficher CHANGER LE COOKIESECOND += CLICKVALUE PAR LA NOUVELLE ECONOMIE DE JUAN QUAND DISPO
 function cookieSecondShow() {
-    cookieSecond = countAutoclickers[0] * CpsAutoclicker[0] + countAutoclickers[1] * CpsAutoclicker[1] + countAutoclickers[2] * CpsAutoclicker[2] + countAutoclickers[3] * CpsAutoclicker[3] + countAutoclickers[4] * CpsAutoclicker[4];
+  cookieSecond =
+    countAutoclickers[0] * CpsAutoclicker[0] +
+    countAutoclickers[1] * CpsAutoclicker[1] +
+    countAutoclickers[2] * CpsAutoclicker[2] +
+    countAutoclickers[3] * CpsAutoclicker[3] +
+    countAutoclickers[4] * CpsAutoclicker[4];
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
-};
+}
+//function pour savoir si le joueur a assez pour acheter le bouton bonus
+function enoughMoney(cost) {
+  if (score >= cost) {
+    return true;
+  }
+}
 //Comportement du bouton multiplicateur pour le click
-ClickMultiplierBtn.addEventListener("click", function () {
+clickMultiplierBtn.addEventListener("click", function () {
   bool = checkScore(costMultipliers[0]);
   if (bool) {
     costMultipliers[0] = multiplyCost(costMultipliers[0]);
@@ -126,6 +158,7 @@ elmoMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[0] = multiplierValue * CpsAutoclicker[0];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[0])
   }
 });
 //Comportement du bouton multiplicateur pour birdie
@@ -139,6 +172,7 @@ birdieMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[1] = multiplierValue * CpsAutoclicker[1];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[1])
   }
 });
 //Comportement du bouton multiplicateur pour oscar
@@ -152,6 +186,7 @@ oscarMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[2] = multiplierValue * CpsAutoclicker[2];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[2])
   }
 });
 //Comportement du bouton multiplicateur pour grover
@@ -165,6 +200,7 @@ groverMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[3] = multiplierValue * CpsAutoclicker[3];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[3])
   }
 });
 //Comportement du bouton multiplicateur pour ernie
@@ -178,9 +214,10 @@ ernieMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[4] = multiplierValue * CpsAutoclicker[4];
     cookieSecondShow();
     updateScoreDisplay();
+    //updateValue(display, CpsAutoclicker[4])
   }
 });
-//Comportement du bouton autoclicker elmo 
+//Comportement du bouton autoclicker elmo
 autoclickerElmo.addEventListener("click", function () {
   bool = checkScore(costAutoclickers[0]);
   if (bool) {
@@ -188,7 +225,9 @@ autoclickerElmo.addEventListener("click", function () {
     countAutoclickers[0]++;
     updateValue(costElmoDisplay, costAutoclickers[0]);
     updateValue(countElmoDisplay, countAutoclickers[0]);
-    setInterval(function() {Cpsclick(0)}, 1000);
+    setInterval(function () {
+      Cpsclick(0);
+    }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
   }
@@ -201,7 +240,9 @@ autoclickerBirdie.addEventListener("click", function () {
     countAutoclickers[1]++;
     updateValue(costBirdieDisplay, costAutoclickers[1]);
     updateValue(countBirdieDisplay, countAutoclickers[1]);
-    setInterval(function() {Cpsclick(1)}, 1000);
+    setInterval(function () {
+      Cpsclick(1);
+    }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
   }
@@ -214,7 +255,9 @@ autoclickerOscar.addEventListener("click", function () {
     countAutoclickers[2]++;
     updateValue(costOscarDisplay, costAutoclickers[2]);
     updateValue(countOscarDisplay, countAutoclickers[2]);
-    setInterval(function() {Cpsclick(2)}, 1000);
+    setInterval(function () {
+      Cpsclick(2);
+    }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
   }
@@ -227,7 +270,9 @@ autoclickerGrover.addEventListener("click", function () {
     countAutoclickers[3]++;
     updateValue(costGroverDisplay, costAutoclickers[3]);
     updateValue(countGroverDisplay, countAutoclickers[3]);
-    setInterval(function() {Cpsclick(3)}, 1000);
+    setInterval(function () {
+      Cpsclick(3);
+    }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
   }
@@ -240,7 +285,9 @@ autoclickerErnie.addEventListener("click", function () {
     countAutoclickers[4]++;
     updateValue(costErnieDisplay, costAutoclickers[4]);
     updateValue(countErnieDisplay, countAutoclickers[4]);
-    setInterval(function() {Cpsclick(4)}, 1000);
+    setInterval(function () {
+      Cpsclick(4);
+    }, 1000);
     cookieSecondShow();
     updateScoreDisplay();
   }
@@ -252,38 +299,50 @@ cookieBtn.addEventListener("click", () => {
   //changer la valeur du score
   updateScoreDisplay();
 });
-
+//Quand on clique sur le timer, il n'empeche plus le joueur d'acceder au cookie
+bonusTimeDisplay.addEventListener("click", () => {
+  click();
+});
+//Comportement bouton sur le popup
+hidePopUpBtn.addEventListener("click", () => {
+  showPseudo();
+  popUp.style.visibility = "hidden";
+});
+//Bouton pour montrer le popup
+showPopUpBtn.addEventListener("click", () => {
+  popUp.style.visibility = "visible";
+});
 //comportement du bouton bonus
-//LE BONUS EST FIXE A 1 COOKIE AU costBonus
-//LES // DES COMMENTAIRES SUR LES LIGNES 107 113 118 123 DOIVENT ETRE ENLEVEES QUE QUAND LES ZONES SONT CREES DANS LE HTML
-//LE CONSOLE.LOG DE LA LIGNE 118 DOIT ETRE ENLEVE QUAND TOUTES LES ZONES SONT LIEES ENTRE ELLE VIA JS ET CREES SUR LE HTML
 bonusBtn.addEventListener("click", () => {
-  bool = checkScore(costBonus);
-  if (bool && !bonusActivated) {
+  money = enoughMoney(costBonus);
+  if (money && !bonusActivated) {
+    bool = checkScore(costBonus);
+    bonusTimeDisplay.style.visibility = "visible";
     bonusActivated = true;
     costBonus = multiplyCost(costBonus);
-    //updateValue(costBonusDisplay, costBonus);
+    updateValue(costBonusDisplay, costBonus);
     updateScoreDisplay();
     //augmentation du click de 200%
     clickValue = Math.floor(clickValue * 2);
     // Création de bonusTimeDisplay en secondes
     let bonusTime = 30;
-    //bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
+    bonusTimeDisplay.textContent = `${bonusTime}s \n Bonus Click : 200%`;
     //Décrémentation du bonusTimeDisplay
     bonusTimeInterval = setInterval(() => {
       bonusTime--;
       console.log(bonusTime);
-      //bonusTimeDisplay.textContent = `Il te reste ${bonusTime} secondes de bonus 200% au click!`;
-      //Arret et disparition du timer du bonus 
+      bonusTimeDisplay.textContent = `${bonusTime}s \n Bonus Click : 200%`;
+      //Arret et disparition du timer du bonus
       if (bonusTime === 0) {
         clearInterval(bonusTimeInterval);
-        //bonusTimeDisplay.textContent = "";
+        bonusTimeDisplay.textContent = "";
       }
     }, 1000);
     setTimeout(() => {
       //diminution du click de 200%
       clickValue = Math.floor(clickValue / 2);
       bonusActivated = false;
+      bonusTimeDisplay.style.visibility = "hidden";
     }, 30000);
   }
 });

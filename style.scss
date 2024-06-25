@@ -24,9 +24,6 @@
 
 /*###############################################*/
 
-.popUp {
-  display: none;
-}
 
 /* LAYOUT GENERAL */
 
@@ -63,6 +60,17 @@ h1 {
   text-shadow: 3px 4px 5px #000;
 }
 
+.nomPatisserie {
+  position: absolute;
+  margin-left: 55%;
+  top: 5px;
+  font-family: "HomemadeApple-Regular.ttf", serif;
+  font-size: 8rem;
+  line-height: 6rem;
+  color: rgb(86, 192, 234);
+  text-shadow: 3px 4px 5px #000;
+}
+
 main {
   @include flexInFlex;
   margin: 0 auto;
@@ -88,15 +96,13 @@ main {
 }
 
 .cookieBtn {
-  padding: 0;
-  max-height: 302px;
-  max-width: 310px;
   position: relative;
   margin: 15rem 8rem;
   background: none;
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
 }
 
 #zoneCookie img {
@@ -105,6 +111,19 @@ main {
   width: 100%;
   height: auto;
   opacity: 1;
+}
+
+#bonusTimeDisplay {
+  position: absolute;
+  margin-left: 8rem;
+  margin-top: 15rem;
+  display: block;
+  text-align: center;
+  background-color: red;
+  border-radius: 50%;
+  height: 302px;
+  width: 310px;
+  z-index: 1;
 }
 
 #bonusBtn {
@@ -117,6 +136,17 @@ main {
     width: 150px;
   }
   cursor: grab;
+}
+
+#costBonusDisplay {
+  font-family: "Merriweather-Regular.ttf";
+  color: yellow;
+  position: absolute;
+  background: none;
+  border: none;
+  z-index: 1;
+  left: 88%;
+  top: -20px;
 }
 
 /* ZONE DROITE */
@@ -340,7 +370,6 @@ main {
   max-height: 70px;
   object-fit: cover;
   justify-self: start;
-  object-fit: cover;
 }
 
 @mixin countAutoclickerDesign {
@@ -383,6 +412,9 @@ main {
     }
   }
 
+  button:disabled {
+  }
+
   #costElmoDisplay,
   #costBirdieDisplay,
   #costOscarDisplay,
@@ -422,4 +454,21 @@ legend {
 
 legend a {
   color: yellow;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cookieBtn {
+  animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
+}
+
+.bonusBtn {
+  animation: rotation 50s infinite linear;
 }

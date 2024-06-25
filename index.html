@@ -15,11 +15,19 @@
 <body>
   <header>
     <!-- Span pour nom a completer -->
-    <h1>La cookisserie de <span class="nomPatisserie"></span></h1>
+    <h1>La cookisserie de </h1>
+    <br>
+    <span class="nomPatisserie">Cookiero</span>
   </header>
 
+  <section>
+    <button id="showPopUp">Revoir le Tutoriel</button>
+  </section>
+  
+
   <section class="popUp">
-    <h1>Bienvenue à Monster Cookie Clicker </h1>
+    <article class="popUpText">
+    <p>Bienvenue à Monster Cookie Clicker </p>
     <p>Dans Cookie Clicker, l'objectif est simple et amusant : </p>
     <ul>
       <li>Cliquez sur le grand cookie au centre de l'écran pour gagner des cookies.</li>
@@ -31,19 +39,23 @@
     <p>Et souvenez-vous, comme dans la vraie vie, on travaille sans fin juste pour acheter plus de trucs. <br>
       Amusant, non ?
     </p>
-    <label for="factoryName">Veuillez entrer votre pseudo!</label>
-    <input id="factoryName" type="text" placeholder="Votre pseudo" required>
-    <button>Commencer à jouer</button>
-  </section>
+    <label for="factoryName">Veuillez entrer votre pseudo! (10 charactères maximum)</label>
+    <input id="factoryName" type="text" maxlength="10" placeholder="Votre pseudo">
+    <button id="hidePopUp">Commencer à jouer</button>
+  </article>
+    </section>
+  
   <main>
-
     <section id="zoneCookie">
       <img src="assets/cookieMonster.webp" class="cookiePose" alt="cookieMonster">
+     
       <button class="cookieBtn">
         <img src="./assets/cookie01.webp" alt="Cookie" />
       </button>
+      <p id="bonusTimeDisplay"></p>
       <button id="bonusBtn" class="autoclick" type="button">
         <img src="assets/cookie02.webp" alt="cookieBonus"></button>
+        <span id="costBonusDisplay">10</span>
     </section>
 
     <section id="zoneInfos">
@@ -53,10 +65,11 @@
         
         <button id="clickMultiplier" type="button" class="tooltip">
           <div class="tooltip">
-            <span class="tooltiptext">Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</span>
+            <p class="tooltiptext">Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !
+              </p>
           </div>  
 
-          <p id="costClickMultiplierDisplay">1000</p>
+          <p id="costClickMultiplierDisplay">100</p>
           <img src="assets/multiplierCookieClicker.webp" alt="iconMultiplier" />
           <p id="countClickMultiplierDisplay">0</p>
         </button>
@@ -67,7 +80,7 @@
         <button id="elmoMultiplier" type="button" class="tooltip">
 
           <article class="tooltip">
-            <span class="tooltiptext">Un Elmo tout doux qui augmente la vitesse de clic avec sa gentillesse.</span>
+            <p class="tooltiptext">Un Elmo tout doux qui augmente la vitesse de clic avec sa gentillesse.</p>
           </article> 
 
           <p id="costElmoMultiplierDisplay">1000</p>
@@ -79,7 +92,7 @@
 
         <button id="birdieMultiplier" type="button" class="tooltip">
           <article class="tooltip">
-          <span class="tooltiptext">Sur ses patins, Big Bird trouve toujours plus de cookies à cliquer.</span>
+          <p class="tooltiptext">Sur ses patins, Big Bird trouve toujours plus de cookies à cliquer.</p>
         </article> 
 
           <p id="costBirdieMultiplierDisplay">10000</p>
@@ -91,7 +104,7 @@
 
         <button id="oscarMultiplier" type="button" class="tooltip">
           <article class="tooltip">
-            <span class="tooltiptext">La poubelle d'Oscar cache de nombreux cookies, augmentant ainsi la vitesse de clic.</span>
+            <p class="tooltiptext">La poubelle d'Oscar cache de nombreux cookies, augmentant ainsi la vitesse de clic.</p>
           </article> 
 
           <p id="costOscarMultiplierDisplay">100000</p>
@@ -103,7 +116,7 @@
 
         <button id="groverMultiplier" type="button" class="tooltip">
           <article class="tooltip">
-            <span class="tooltiptext">Super Grover: Avec sa cape, Grover clique à la vitesse de l'éclair.</span>
+            <p class="tooltiptext">Super Grover: Avec sa cape, Grover clique à la vitesse de l'éclair.</p>
           </article> 
           <p id="costGroverMultiplierDisplay">300000</p>
           <img src="assets/multiplierGroverAutoclicker.webp" alt="iconMultiplier" />
@@ -114,7 +127,7 @@
 
         <button id="ernieMultiplier" type="button" class="tooltip">
           <article class="tooltip">
-            <span class="tooltiptext">Le canard d'Ernie rend chaque clic plus joyeux et plus rapide.</span>
+            <p class="tooltiptext">Le canard d'Ernie rend chaque clic plus joyeux et plus rapide.</p>
           </article> 
           <p id="costErnieMultiplierDisplay">500000</p>
           <img src="assets/multiplierErnieAutoclicker.webp" alt="iconMultiplier" />
@@ -132,30 +145,50 @@
 
     <section class="autoclickShop">
       <button id="autoclickerElmoBtn" type="button">
+        <article class="tooltip">
+          <p class="tooltiptext">Elmo: Cet adorable monstre rouge adore s'amuser et cliquer !<br>
+            <span>1</span></p>
+        </article> 
         <p id="costElmoDisplay">15</p>
         <img src="assets/elmoAutoclickerImage.webp" alt="autoclicker1">
         <p id="countElmoDisplay">0</p>
       </button>
 
       <button id="autoclickerBirdieBtn" type="button">
+        <article class="tooltip">
+          <p class="tooltiptext">Big Bird: Toujours prêt à aider, Big Bird clique avec ses grandes ailes.<br>
+            <span>8</span></p>
+        </article> 
         <p id="costBirdieDisplay">100</p>
         <img src="assets/birdieAutoclickerImage.webp" alt="autoclicker2">
         <p id="countBirdieDisplay">0</p>
       </button>
 
       <button id="autoclickerOscarBtn" type="button">
+        <article class="tooltip">
+          <p class="tooltiptext">Oscar the Grouch: Grognon mais efficace, Oscar clique depuis sa poubelle.<br>
+            <span>47</span></p>
+        </article> 
         <p id="costOscarDisplay">1100</p>
         <img src="assets/oscarAutoclickerImage.webp" alt="autoclicker3">
         <p id="countOscarDisplay">0</p>
       </button>
 
       <button id="autoclickerGroverBtn" type="button">
+        <article class="tooltip">
+          <p class="tooltiptext">Grover: Super Grover est là pour sauver la journée avec des clics super rapides.<br>
+            <span>260</span></p>
+        </article> 
         <p id="costGroverDisplay">12000</p>
         <img src="assets/groverAutoclickerImage.webp" alt="autoclicker4">
         <p id="countGroverDisplay">0</p>
       </button>
 
       <button id="autoclickerErnieBtn" type="button">
+        <article class="tooltip">
+          <p class="tooltiptext">Bert et Ernie: Ce duo dynamique clique ensemble pour doubler l'efficacité.<br>
+            <span>1400</span></p>
+        </article> 
         <p id="costErnieDisplay">130000</p>
         <img src="assets/ernieAutoclickerImage.webp" alt="autoclicker5">
         <p id="countErnieDisplay">0</p>

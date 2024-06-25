@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* IMPORTED FONTS */
 @font-face {
   font-family: "Merriweather-Regular.ttf";
@@ -14,9 +15,6 @@
 }
 /* SASS GLOBAL VARIABLES */
 /*###############################################*/
-.popUp {
-  display: none;
-}
 
 /* LAYOUT GENERAL */
 body {
@@ -52,6 +50,17 @@ h1 {
   text-shadow: 3px 4px 5px #000;
 }
 
+.nomPatisserie {
+  position: absolute;
+  margin-left: 55%;
+  top: 5px;
+  font-family: "HomemadeApple-Regular.ttf", serif;
+  font-size: 8rem;
+  line-height: 6rem;
+  color: rgb(86, 192, 234);
+  text-shadow: 3px 4px 5px #000;
+}
+
 main {
   position: relative;
   display: flex;
@@ -79,15 +88,13 @@ main {
 }
 
 .cookieBtn {
-  padding: 0;
-  max-height: 302px;
-  max-width: 310px;
   position: relative;
   margin: 15rem 8rem;
   background: none;
   border-radius: 50%;
   border: none;
   cursor: pointer;
+  box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
 }
 
 #zoneCookie img {
@@ -96,6 +103,37 @@ main {
   width: 100%;
   height: auto;
   opacity: 1;
+}
+
+#bonusTimeDisplay {
+  position: absolute;
+  margin-left: 9rem;
+  margin-top: 14rem;
+  display: block;
+  visibility: hidden;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.7),
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0)
+  );
+  color: yellow;
+  text-align: center;
+  align-content: center;
+
+  border-radius: 50%;
+  height: 300px;
+  width: 300px;
+  z-index: 1;
+  font-family: "Merriweather-Regular.ttf", serif;
 }
 
 #bonusBtn {
@@ -108,6 +146,19 @@ main {
 }
 #bonusBtn img {
   width: 150px;
+}
+
+#costBonusDisplay {
+  font-family: "Merriweather-Regular.ttf";
+  color: yellow;
+  position: absolute;
+  width: 130px;
+  text-align: center;
+  background: none;
+  border: none;
+  z-index: 1;
+  left: 88%;
+  top: -20px;
 }
 
 /* ZONE DROITE */
@@ -144,7 +195,7 @@ main {
   flex-direction: column;
   margin: 0 auto;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: 90px;
   height: 90px;
   border-style: inset;
@@ -155,7 +206,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #clickMultiplier {
@@ -202,7 +253,7 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #costClickMultiplierDisplay,
@@ -234,9 +285,6 @@ main {
   width: 90%;
   margin: 0;
   text-align: end;
-}
-.multiplierShop button:disabled {
-  background-color: rgb(1, 48, 48);
 }
 
 .tooltip .tooltiptext {
@@ -309,7 +357,7 @@ main {
   margin: auto;
   max-height: 110px;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   justify-self: start;
 }
 .autoclickShop #costElmoDisplay,
@@ -345,9 +393,8 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-     object-fit: cover;
-  justify-self: start;
   object-fit: cover;
+  justify-self: start;
 }
 
 /* FOOTER */
@@ -368,7 +415,7 @@ legend {
 
 legend a {
   color: yellow;
-}/*# sourceMappingURL=style.css.map */
+}
 
 @keyframes rotation {
   from {
@@ -378,7 +425,31 @@ legend a {
     transform: rotate(360deg);
   }
 }
-
-.cookieBtn{
+.cookieBtn {
   animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
+}
+
+.bonusBtn {
+  animation: rotation 50s infinite linear;
+} /*# sourceMappingURL=style.css.map */
+
+.btnDisabled {
+  background-color: rgb(1, 48, 48);
+}
+
+.popUp {
+  display: block;
+  visibility: visible;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/sesam_popup.jpg");
+  background-size: cover;
+}
+.popUpText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
