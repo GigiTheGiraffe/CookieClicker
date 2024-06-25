@@ -76,6 +76,7 @@ let bool;
 let bonusActivated = false;
 let bonusTimeInterval;
 let score = 0;
+let money = false;
 
 //Ajoute le montant du click au score
 function click() {
@@ -125,6 +126,12 @@ function cookieSecondShow() {
     countAutoclickers[3] * CpsAutoclicker[3] +
     countAutoclickers[4] * CpsAutoclicker[4];
   cookieSecondDisplay.textContent = `${cookieSecond} cookies par seconde`;
+}
+//function pour savoir si le joueur a assez pour acheter le bouton bonus
+function enoughMoney(cost) {
+  if (score >= cost) {
+    return true;
+  }
 }
 //Comportement du bouton multiplicateur pour le click
 ClickMultiplierBtn.addEventListener("click", function () {
@@ -294,8 +301,9 @@ bonusTimeDisplay.addEventListener("click", () => {
 //LES // DES COMMENTAIRES SUR LES LIGNES 107 113 118 123 DOIVENT ETRE ENLEVEES QUE QUAND LES ZONES SONT CREES DANS LE HTML
 //LE CONSOLE.LOG DE LA LIGNE 118 DOIT ETRE ENLEVE QUAND TOUTES LES ZONES SONT LIEES ENTRE ELLE VIA JS ET CREES SUR LE HTML
 bonusBtn.addEventListener("click", () => {
-  bool = checkScore(costBonus);
-  if (bool && !bonusActivated) {
+  money = enoughMoney(costBonus);
+  if (money && !bonusActivated) {
+    bool = checkScore(costBonus);
     bonusTimeDisplay.style.visibility = "visible";
     bonusActivated = true;
     costBonus = multiplyCost(costBonus);
