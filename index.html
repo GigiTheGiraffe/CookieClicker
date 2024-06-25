@@ -15,7 +15,9 @@
 <body>
   <header>
     <!-- Span pour nom a completer -->
-    <h1>La cookisserie de <span class="nomPatisserie"></span></h1>
+    <h1>La cookisserie de </h1>
+    <br>
+    <span class="nomPatisserie"></span>
   </header>
 
   <section class="popUp">
@@ -39,11 +41,14 @@
 
     <section id="zoneCookie">
       <img src="assets/cookieMonster.webp" class="cookiePose" alt="cookieMonster">
+     
       <button class="cookieBtn">
         <img src="./assets/cookie01.webp" alt="Cookie" />
       </button>
+      <div id="bonusTimeDisplay"><span>0:30</span></div>
       <button id="bonusBtn" class="autoclick" type="button">
         <img src="assets/cookie02.webp" alt="cookieBonus"></button>
+        <span id="costBonusDisplay">1000pesetas</span>
     </section>
 
     <section id="zoneInfos">
@@ -53,7 +58,7 @@
         
         <button id="clickMultiplier" type="button" class="tooltip">
           <div class="tooltip">
-            <span class="tooltiptext">Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</span>
+            <p class="tooltiptext">Cookie Monster: Le monstre des cookies ne peut résister à un bon cookie. Cliquez sans fin avec lui !</p>
           </div>  
 
           <p id="costClickMultiplierDisplay">100</p>
