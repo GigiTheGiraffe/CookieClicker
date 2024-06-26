@@ -433,7 +433,7 @@ legend a {
 }
 
 .popUpText {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -452,7 +452,7 @@ legend a {
   
   
 }
-.popUpText {
+.popUpText h2 {
  font-size: 9vw;
  font-family: 'Barlow condensed', sans-serif;
  font-weight: 500;
@@ -466,8 +466,13 @@ legend a {
  line-height:1.2;
  word-break: break-word;
 }
-.popUp p {
 
+.popUp li {
+  font-family: 'Barlow condensed', sans-serif;
+}
+.popUp p{
+  font-family: 'Barlow condensed', sans-serif;
+  color:white;
 }
 
 #showPopUp {
