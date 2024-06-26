@@ -15,6 +15,14 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: "BarlowCondensed-Medium.ttf";
+  src: url(./assets/Fonts/BarlowCondensed-Medium.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* SASS GLOBAL VARIABLES */
 
 @mixin flexInFlex {
@@ -50,24 +58,28 @@ header {
 
 h1 {
   position: absolute;
-  margin-left: 55%;
-  top: 5px;
+  margin-left: 57%;
+  z-index: -1;
+  top: 2px;
   font-family: "HomemadeApple-Regular.ttf", serif;
-  font-size: 5rem;
+  font-size: 3.5rem;
   line-height: 6rem;
   color: rgb(86, 192, 234);
   text-shadow: 3px 4px 5px #000;
+  user-select: none;
 }
 
 .nomPatisserie {
   position: absolute;
-  left: 57%;
-  top: 180px;
+  left: 64%;
+  top: 140px;
   font-family: "HomemadeApple-Regular.ttf", serif;
-  font-size: 8rem;
+  font-size: 6rem;
   line-height: 6rem;
   color: rgb(86, 192, 234);
   text-shadow: 3px 4px 5px #000;
+  user-select: none;
+  z-index: -1;
 }
 
 main {
@@ -114,9 +126,11 @@ main {
 
 #bonusTimeDisplay {
   position: absolute;
-  margin: 16rem 7rem;
+  visibility: hidden;
+  margin: 16rem 7.3rem;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.5);
   color: yellow;
   font-size: 2rem;
   align-content: center;
@@ -124,6 +138,7 @@ main {
   height: 275px;
   width: 275px;
   z-index: 1;
+  user-select: none;
 }
 
 #bonusBtn {
@@ -222,8 +237,9 @@ main {
 
 .multiplierShop {
   @include flexInFlex;
+  z-index: 1;
   margin-left: 10%;
-  margin-top: 15%;
+  margin-top: 18%;
   background-color: #174883;
   padding: 20px 40px;
   border-radius: 18px;
@@ -236,6 +252,7 @@ main {
 
   button {
     @include multiplierBtns();
+    cursor: pointer;
     img {
       position: relative;
       margin: auto;
@@ -352,6 +369,7 @@ main {
   margin: auto 15px;
   background-color: rgb(1, 23, 48);
   background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+  cursor: pointer;
 }
 
 @mixin costAutoclickerDesign {
@@ -433,6 +451,13 @@ main {
   }
 }
 
+#autoclickerElmoBtn {
+  .tooltip .tooltiptext {
+    margin-left: -21rem;
+    margin-top: -500px;
+  }
+}
+
 /* FOOTER */
 
 footer {
@@ -475,25 +500,83 @@ legend a {
 }
 
 .popUp {
-  display: block;
+  position: absolute;
+
   visibility: visible;
-  position: fixed;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background-image: url("./assets/sesam_popup.jpg");
+  background-image: url("assets/sesam_popup4.webp");
+
   background-size: cover;
+  overflow: hidden;
 }
+
 .popUpText {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: #44903f;
+  display: block;
+  border: 0.9em solid #fad949;
+  border-radius: 0.25em;
+
+  box-sizing: border-box;
+  text-shadow: 0.03125em 0.03125em 0 rgba(0, 0, 0, 0.25);
+  line-height: 1;
+  box-shadow: inset 0.6em 0.5em rgba(0, 0, 0, 0.25), 0.3em 0.3em #c6ab39,
+    0.5em 0.3em 0.5em rgba(0, 0, 0, 0.25);
+  padding-bottom: 1%;
 }
+.popUp h2 {
+  position: relative;
+  font-size: 4vw;
+  font-family: "Barlow condensed", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  min-width: 3em;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  text-shadow: 0.025em 0.0625em 0 rgba(0, 0, 0, 0.25);
+  margin: 4vw;
+  padding: 0.125em 0.25em 0.3em;
+  line-height: 1.2;
+  word-break: break-word;
+}
+.popUp p {
+  font-family: "Barlow condensed", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  margin: 12px;
+  word-break: break-word;
+  text-align: left;
+  font-weight: 800;
+}
+.popUp li {
+  font-family: "Barlow condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  padding-bottom: 7px;
+  letter-spacing: 0.22;
+}
+
+label {
+  padding: 6%;
+  font-size: 13px;
+  font-family: "Barlow condensed", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* BUTTON TUTO */
 
 #showPopUp {
   position: absolute;
   z-index: 1;
+  padding: 0 2rem;
   background: none;
   border: dotted 2px yellow;
   font-family: "HomemadeApple-Regular.ttf", serif;
@@ -501,4 +584,14 @@ legend a {
   color: yellow;
   left: 85%;
   top: 81.5%;
+  cursor: pointer;
+}
+
+#showPopUp:hover {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.btnDisabled {
+  background-color: red;
+  opacity: 0.5;
 }
