@@ -66,7 +66,6 @@ function click() {
 }
 //Mettre le pseudo du joueur sur le html
 function showPseudo()  {
-  console.log(pseudo.value);
   if (pseudo.value.length > 0) {
     nomPatisserie.textContent = pseudo.value;
   }
@@ -330,7 +329,6 @@ bonusBtn.addEventListener("click", () => {
     //Décrémentation du bonusTimeDisplay
     bonusTimeInterval = setInterval(() => {
       bonusTime--;
-      console.log(bonusTime);
       bonusTimeDisplay.textContent = `${bonusTime}s \n Bonus Click : 200%`;
       //Arret et disparition du timer du bonus
       if (bonusTime === 0) {
