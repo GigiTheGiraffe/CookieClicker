@@ -37,6 +37,11 @@ const countGroverMultiplierDisplay = document.getElementById("countGroverMultipl
 const ernieMultiplierBtn = document.getElementById("ernieMultiplier");
 const costErnieMultiplierDisplay = document.getElementById("costErnieMultiplierDisplay");
 const countErnieMultiplierDisplay = document.getElementById("countErnieMultiplierDisplay");
+const cpsElmo = document.getElementById("cpsElmo");
+const cpsBirdie = document.getElementById("cpsBirdie");
+const cpsOscar = document.getElementById("cpsOscar");
+const cpsGrover = document.getElementById("cpsGrover");
+const cpsErnie = document.getElementById("cpsErnie");
 const multiplierValue = 2;
 const pseudo = document.getElementById("factoryName");
 const nomPatisserie = document.querySelector(".nomPatisserie");
@@ -157,7 +162,7 @@ elmoMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[0] = multiplierValue * CpsAutoclicker[0];
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[0])
+    updateValue(cpsElmo, CpsAutoclicker[0])
   }
 });
 //Comportement du bouton multiplicateur pour birdie
@@ -171,7 +176,7 @@ birdieMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[1] = multiplierValue * CpsAutoclicker[1];
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[1])
+    updateValue(cpsBirdie, CpsAutoclicker[1])
   }
 });
 //Comportement du bouton multiplicateur pour oscar
@@ -185,7 +190,7 @@ oscarMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[2] = multiplierValue * CpsAutoclicker[2];
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[2])
+    updateValue(cpsOscar, CpsAutoclicker[2])
   }
 });
 //Comportement du bouton multiplicateur pour grover
@@ -199,7 +204,7 @@ groverMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[3] = multiplierValue * CpsAutoclicker[3];
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[3])
+    updateValue(cpsGrover, CpsAutoclicker[3])
   }
 });
 //Comportement du bouton multiplicateur pour ernie
@@ -213,7 +218,7 @@ ernieMultiplierBtn.addEventListener("click", function () {
     CpsAutoclicker[4] = multiplierValue * CpsAutoclicker[4];
     cookieSecondShow();
     updateScoreDisplay();
-    //updateValue(display, CpsAutoclicker[4])
+    updateValue(cpsErnie, CpsAutoclicker[4])
   }
 });
 //Comportement du bouton autoclicker elmo
