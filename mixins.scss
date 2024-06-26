@@ -1,0 +1,135 @@
+/* IMPORTED FONTS */
+@font-face {
+  font-family: "Merriweather-Regular.ttf";
+  src: url(./assets/Fonts/Merriweather-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HomemadeApple-Regular.ttf";
+  src: url(./assets/Fonts/HomemadeApple-Regular.ttf);
+
+  font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BarlowCondensed-Medium.ttf";
+  src: url(./assets/Fonts/BarlowCondensed-Medium.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* MULTIPLIER SHOP SASS */
+
+@mixin flexInFlex {
+  position: relative;
+  display: flex;
+}
+
+@mixin multiplierBtns {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  object-fit: cover;
+  width: 90px;
+  height: 90px;
+  border-style: inset;
+  background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
+}
+
+@mixin costMultiplierDesign {
+  position: relative;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-weight: 900;
+  color: white;
+  width: 100%;
+  margin: 0;
+  text-align: end;
+}
+
+@mixin imageMultiplierDesign {
+  position: relative;
+  margin: auto;
+  max-height: 70px;
+  object-fit: cover;
+  justify-self: start;
+}
+
+@mixin countMultiplierDesign {
+  position: absolute;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-weight: 900;
+  font-size: 2rem;
+  bottom: 0;
+  color: yellow;
+  width: 90%;
+  margin: 0;
+  text-align: end;
+}
+
+/* TOOLTIP DESIGN */
+
+@mixin tooltipMultiplierDesign {
+  position: absolute;
+  visibility: hidden;
+  width: 680px;
+  border: 6px ridge rgb(10, 157, 210);
+  border-radius: 15px;
+  background-color: #174883;
+  background-image: url(assets/lined-paper-2.png);
+  color: yellow;
+  text-align: center;
+  text-wrap: nowrap;
+  font-weight: 600;
+  padding: 10px;
+  top: 8rem;
+}
+
+/* AUTO CLICK SHOP SASS DESIGN */
+
+@mixin autoclickerBtns {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  height: 130px;
+  margin: auto 15px;
+  background-color: rgb(1, 23, 48);
+  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+  cursor: pointer;
+}
+
+@mixin costAutoclickerDesign {
+  position: relative;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-weight: 900;
+  color: white;
+  width: 100%;
+  margin: 0;
+  text-align: end;
+}
+
+@mixin imageAutoclickerDesign {
+  position: relative;
+  margin: auto;
+  max-height: 70px;
+  object-fit: cover;
+  justify-self: start;
+}
+
+@mixin countAutoclickerDesign {
+  position: absolute;
+  font-family: "Merriweather-Regular.ttf", serif;
+  font-weight: 900;
+  font-size: 2rem;
+  bottom: 0;
+  color: yellow;
+  width: 90%;
+  margin: 0;
+  text-align: end;
+}

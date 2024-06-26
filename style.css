@@ -13,9 +13,15 @@
   font-weight: 100;
   font-display: swap;
 }
+@font-face {
+  font-family: "BarlowCondensed-Medium.ttf";
+  src: url(./assets/Fonts/BarlowCondensed-Medium.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 /* SASS GLOBAL VARIABLES */
 /*###############################################*/
-
 /* LAYOUT GENERAL */
 body {
   margin: 0;
@@ -41,24 +47,32 @@ header {
 
 h1 {
   position: absolute;
-  margin-left: 55%;
-  top: 5px;
+  margin-left: 57%;
+  z-index: -1;
+  top: 2px;
   font-family: "HomemadeApple-Regular.ttf", serif;
-  font-size: 5rem;
+  font-size: 3.5rem;
   line-height: 6rem;
   color: rgb(86, 192, 234);
   text-shadow: 3px 4px 5px #000;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .nomPatisserie {
   position: absolute;
-  margin-left: 55%;
-  top: 5px;
+  left: 64%;
+  top: 140px;
   font-family: "HomemadeApple-Regular.ttf", serif;
-  font-size: 8rem;
+  font-size: 6rem;
   line-height: 6rem;
   color: rgb(86, 192, 234);
   text-shadow: 3px 4px 5px #000;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  z-index: -1;
 }
 
 main {
@@ -88,8 +102,8 @@ main {
 }
 
 .cookieBtn {
-  position: relative;
-  margin: 15rem 8rem;
+  position: absolute;
+  margin: 15rem 6rem;
   background: none;
   border-radius: 50%;
   border: none;
@@ -107,33 +121,21 @@ main {
 
 #bonusTimeDisplay {
   position: absolute;
-  margin-left: 9rem;
-  margin-top: 14rem;
-  display: block;
   visibility: hidden;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.8),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0)
-  );
-  color: yellow;
+  margin: 16rem 7.3rem;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.5);
+  color: yellow;
+  font-size: 2rem;
   align-content: center;
-
   border-radius: 50%;
-  height: 300px;
-  width: 300px;
+  height: 275px;
+  width: 275px;
   z-index: 1;
-  font-family: "Merriweather-Regular.ttf", serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 #bonusBtn {
@@ -149,15 +151,14 @@ main {
 }
 
 #costBonusDisplay {
-  font-family: "Merriweather-Regular.ttf";
+  font-family: "Merriweather-Regular.ttf", serif;
   color: yellow;
+  font-weight: 900;
   position: absolute;
-  width: 130px;
-  text-align: center;
   background: none;
   border: none;
   z-index: 1;
-  left: 88%;
+  left: 92%;
   top: -20px;
 }
 
@@ -175,8 +176,9 @@ main {
 .multiplierShop {
   position: relative;
   display: flex;
+  z-index: 1;
   margin-left: 10%;
-  margin-top: 15%;
+  margin-top: 18%;
   background-color: #174883;
   padding: 20px 40px;
   border-radius: 18px;
@@ -187,7 +189,6 @@ main {
   white-space: nowrap;
   background-image: url(assets/lined-paper-2.png);
   /* BUTTONS ACTIVE PROPERTIES */
-  /* */
 }
 .multiplierShop button {
   position: relative;
@@ -195,65 +196,69 @@ main {
   flex-direction: column;
   margin: 0 auto;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   width: 90px;
   height: 90px;
   border-style: inset;
   background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
+  cursor: pointer;
 }
 .multiplierShop button img {
   position: relative;
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #clickMultiplier {
   background-color: rgb(0, 155, 176);
   border-color: rgb(1, 85, 96);
 }
+.multiplierShop #clickMultiplier .tooltip .tooltiptext {
+  margin-left: -15rem;
+}
 .multiplierShop #elmoMultiplier {
   background-color: rgb(187, 29, 29);
   border-color: rgb(102, 16, 16);
 }
 .multiplierShop #elmoMultiplier .tooltip .tooltiptext {
-  margin-left: -2rem;
+  margin-left: -10rem;
 }
 .multiplierShop #birdieMultiplier {
   background-color: rgb(200, 190, 15);
   border-color: yellow;
 }
 .multiplierShop #birdieMultiplier .tooltip .tooltiptext {
-  margin-left: -10rem;
+  margin-left: -17rem;
 }
 .multiplierShop #oscarMultiplier {
   background-color: rgb(40, 127, 40);
   border-color: rgb(0, 80, 17);
 }
 .multiplierShop #oscarMultiplier .tooltip .tooltiptext {
-  margin-left: -18rem;
+  margin-left: -24rem;
 }
 .multiplierShop #groverMultiplier {
   background-color: rgb(0, 0, 197);
   border-color: rgb(0, 0, 107);
 }
 .multiplierShop #groverMultiplier .tooltip .tooltiptext {
-  margin-left: -21rem;
+  margin-left: -31rem;
 }
 .multiplierShop #ernieMultiplier {
   background-color: rgb(230, 136, 21);
   border-color: rgb(134, 78, 10);
 }
 .multiplierShop #ernieMultiplier .tooltip .tooltiptext {
-  margin-left: -27rem;
+  margin-left: -37rem;
 }
 .multiplierShop img {
   position: relative;
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 .multiplierShop #costClickMultiplierDisplay,
@@ -286,17 +291,21 @@ main {
   margin: 0;
   text-align: end;
 }
+.multiplierShop button:disabled {
+  background-color: rgb(1, 48, 48);
+}
 
 .tooltip .tooltiptext {
   position: absolute;
   visibility: hidden;
+  width: 700px;
   border: 6px ridge rgb(10, 157, 210);
   border-radius: 15px;
-  width: auto;
   background-color: #174883;
   background-image: url(assets/lined-paper-2.png);
   color: yellow;
   text-align: center;
+  text-wrap: nowrap;
   font-weight: 600;
   padding: 10px;
   top: 8rem;
@@ -348,6 +357,7 @@ main {
   margin: auto 15px;
   background-color: rgb(1, 23, 48);
   background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
+  cursor: pointer;
 }
 .autoclickShop button .tooltip .tooltiptext {
   margin-top: -50rem;
@@ -357,7 +367,7 @@ main {
   margin: auto;
   max-height: 110px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
 }
 .autoclickShop #costElmoDisplay,
@@ -393,8 +403,13 @@ main {
   margin: auto;
   max-height: 70px;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
   justify-self: start;
+}
+
+#autoclickerElmoBtn .tooltip .tooltiptext {
+  margin-left: -21rem;
+  margin-top: -500px;
 }
 
 /* FOOTER */
@@ -429,27 +444,139 @@ legend a {
   animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
 }
 
-.bonusBtn {
+#bonusBtn {
   animation: rotation 50s infinite linear;
-} /*# sourceMappingURL=style.css.map */
+}
 
 .btnDisabled {
   background-color: rgb(1, 48, 48);
 }
 
+/* INTRO TUTO POP UP */
 .popUp {
-  display: block;
+  position: absolute;
   visibility: visible;
-  position: fixed;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background-image: url("./assets/sesam_popup.jpg");
+  background-image: url("assets/sesam_popup4.webp");
   background-size: cover;
+  overflow: hidden;
 }
+
 .popUpText {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: #44903f;
+  display: block;
+  border: 0.9em solid #fad949;
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  text-shadow: 0.03125em 0.03125em 0 rgba(0, 0, 0, 0.25);
+  line-height: 1;
+  box-shadow: inset 0.6em 0.5em rgba(0, 0, 0, 0.25), 0.3em 0.3em #c6ab39, 0.5em 0.3em 0.5em rgba(0, 0, 0, 0.25);
+  padding-bottom: 1%;
 }
+
+.popUp h2 {
+  position: relative;
+  font-size: 4vw;
+  font-family: "Barlow condensed", sans-serif;
+  font-weight: 800;
+  text-align: center;
+  min-width: 3em;
+  color: rgba(255, 255, 255, 0.95);
+  text-transform: uppercase;
+  text-shadow: 0.025em 0.0625em 0 rgba(0, 0, 0, 0.25);
+  margin: 4vw;
+  padding: 0.125em 0.25em 0.3em;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.popUp p {
+  font-family: "Barlow condensed", sans-serif;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.95);
+  padding: 10px;
+  margin: 12px;
+  word-break: break-word;
+  text-align: left;
+  font-weight: 800;
+}
+
+.popUp li {
+  font-family: "Barlow condensed", sans-serif;
+  font-size: 14px;
+  font-weight: 200;
+  padding-bottom: 7px;
+  letter-spacing: 0.22;
+}
+
+label {
+  padding: 6%;
+  font-size: 13px;
+  font-family: "Barlow condensed", sans-serif;
+  font-weight: 200;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* BUTTON TUTO */
+#showPopUp {
+  position: absolute;
+  z-index: 1;
+  padding: 0 2rem;
+  background: none;
+  border: dotted 2px yellow;
+  font-family: "HomemadeApple-Regular.ttf", serif;
+  font-size: 2rem;
+  color: yellow;
+  left: 85%;
+  top: 81.5%;
+  cursor: pointer;
+}
+
+#showPopUp:hover {
+  background-color: rgba(255, 255, 0, 0.3);
+}
+
+.btnDisabled {
+  background-color: red;
+  opacity: 0.5;
+}
+
+.tooltip2 {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip2 .tooltiptext2 {
+  position: absolute;
+  visibility: hidden;
+  width: 700px;
+  border: 6px ridge rgb(10, 157, 210);
+  border-radius: 15px;
+  background-color: #174883;
+  background-image: url(assets/lined-paper-2.png);
+  color: yellow;
+  text-align: center;
+  text-wrap: nowrap;
+  font-weight: 600;
+  padding: 10px;
+  top: 8rem;
+  visibility: hidden;
+  top: -180px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip2:hover .tooltiptext2 {
+  visibility: visible;
+}/*# sourceMappingURL=style.css.map */
