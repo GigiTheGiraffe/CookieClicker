@@ -1,0 +1,24 @@
+/* IMPORTED FONTS */
+@font-face {
+  font-family: "Merriweather-Regular.ttf";
+  src: url(./assets/Fonts/Merriweather-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "HomemadeApple-Regular.ttf";
+  src: url(./assets/Fonts/HomemadeApple-Regular.ttf);
+  font-weight: 100;
+  font-display: swap;
+}
+@font-face {
+  font-family: "BarlowCondensed-Medium.ttf";
+  src: url(./assets/Fonts/BarlowCondensed-Medium.ttf);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* MULTIPLIER SHOP SASS */
+/* TOOLTIP DESIGN */
+/* AUTO CLICK SHOP SASS DESIGN *//*# sourceMappingURL=mixins.css.map */

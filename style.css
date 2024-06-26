@@ -215,40 +215,43 @@ main {
   background-color: rgb(0, 155, 176);
   border-color: rgb(1, 85, 96);
 }
+.multiplierShop #clickMultiplier .tooltip .tooltiptext {
+  margin-left: -15rem;
+}
 .multiplierShop #elmoMultiplier {
   background-color: rgb(187, 29, 29);
   border-color: rgb(102, 16, 16);
 }
 .multiplierShop #elmoMultiplier .tooltip .tooltiptext {
-  margin-left: -2rem;
+  margin-left: -10rem;
 }
 .multiplierShop #birdieMultiplier {
   background-color: rgb(200, 190, 15);
   border-color: yellow;
 }
 .multiplierShop #birdieMultiplier .tooltip .tooltiptext {
-  margin-left: -10rem;
+  margin-left: -17rem;
 }
 .multiplierShop #oscarMultiplier {
   background-color: rgb(40, 127, 40);
   border-color: rgb(0, 80, 17);
 }
 .multiplierShop #oscarMultiplier .tooltip .tooltiptext {
-  margin-left: -18rem;
+  margin-left: -24rem;
 }
 .multiplierShop #groverMultiplier {
   background-color: rgb(0, 0, 197);
   border-color: rgb(0, 0, 107);
 }
 .multiplierShop #groverMultiplier .tooltip .tooltiptext {
-  margin-left: -21rem;
+  margin-left: -31rem;
 }
 .multiplierShop #ernieMultiplier {
   background-color: rgb(230, 136, 21);
   border-color: rgb(134, 78, 10);
 }
 .multiplierShop #ernieMultiplier .tooltip .tooltiptext {
-  margin-left: -27rem;
+  margin-left: -37rem;
 }
 .multiplierShop img {
   position: relative;
@@ -295,13 +298,14 @@ main {
 .tooltip .tooltiptext {
   position: absolute;
   visibility: hidden;
+  width: 700px;
   border: 6px ridge rgb(10, 157, 210);
   border-radius: 15px;
-  width: auto;
   background-color: #174883;
   background-image: url(assets/lined-paper-2.png);
   color: yellow;
   text-align: center;
+  text-wrap: nowrap;
   font-weight: 600;
   padding: 10px;
   top: 8rem;
@@ -448,6 +452,7 @@ legend a {
   background-color: rgb(1, 48, 48);
 }
 
+/* INTRO TUTO POP UP */
 .popUp {
   position: absolute;
   visibility: visible;
@@ -541,7 +546,7 @@ label {
 .btnDisabled {
   background-color: red;
   opacity: 0.5;
-}/*# sourceMappingURL=style.css.map */
+}
 
 .tooltip2 {
   position: relative;
@@ -551,14 +556,21 @@ label {
 
 /* Tooltip text */
 .tooltip2 .tooltiptext2 {
+  position: absolute;
   visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
+  width: 700px;
+  border: 6px ridge rgb(10, 157, 210);
+  border-radius: 15px;
+  background-color: #174883;
+  background-image: url(assets/lined-paper-2.png);
+  color: yellow;
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
+  text-wrap: nowrap;
+  font-weight: 600;
+  padding: 10px;
+  top: 8rem;
+  visibility: hidden;
+  top: -180px;
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
@@ -567,4 +579,4 @@ label {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip2:hover .tooltiptext2 {
   visibility: visible;
-}
+}/*# sourceMappingURL=style.css.map */

@@ -1,37 +1,3 @@
-/* IMPORTED FONTS */
-@font-face {
-  font-family: "Merriweather-Regular.ttf";
-  src: url(./assets/Fonts/Merriweather-Regular.ttf);
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "HomemadeApple-Regular.ttf";
-  src: url(./assets/Fonts/HomemadeApple-Regular.ttf);
-
-  font-weight: 100;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "BarlowCondensed-Medium.ttf";
-  src: url(./assets/Fonts/BarlowCondensed-Medium.ttf);
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* SASS GLOBAL VARIABLES */
-
-@mixin flexInFlex {
-  position: relative;
-  display: flex;
-}
-
-/*###############################################*/
-
 /* LAYOUT GENERAL */
 
 body {
@@ -89,7 +55,7 @@ main {
   width: 100vw;
 }
 
-/* COOKIE */
+/* COOKIE SIDE */
 
 #zoneCookie {
   @include flexInFlex;
@@ -114,6 +80,7 @@ main {
   border: none;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(145, 92, 182, 0.4);
+  animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
 }
 
 #zoneCookie img {
@@ -151,6 +118,7 @@ main {
     width: 150px;
   }
   cursor: grab;
+  animation: rotation 50s infinite linear;
 }
 
 #costBonusDisplay {
@@ -172,65 +140,6 @@ main {
   flex-direction: column;
   width: 50vw;
   height: 75vh;
-}
-
-/* MULTIPLIER SHOP SASS */
-
-@mixin multiplierBtns {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  object-fit: cover;
-  width: 90px;
-  height: 90px;
-  border-style: inset;
-  background-image: url("https://www.transparenttextures.com/patterns/grid-noise.png");
-}
-
-@mixin costMultiplierDesign {
-  position: relative;
-  font-family: "Merriweather-Regular.ttf", serif;
-  font-weight: 900;
-  color: white;
-  width: 100%;
-  margin: 0;
-  text-align: end;
-}
-
-@mixin imageMultiplierDesign {
-  position: relative;
-  margin: auto;
-  max-height: 70px;
-  object-fit: cover;
-  justify-self: start;
-}
-
-@mixin countMultiplierDesign {
-  position: absolute;
-  font-family: "Merriweather-Regular.ttf", serif;
-  font-weight: 900;
-  font-size: 2rem;
-  bottom: 0;
-  color: yellow;
-  width: 90%;
-  margin: 0;
-  text-align: end;
-}
-
-@mixin tooltipMultiplierDesign {
-  position: absolute;
-  visibility: hidden;
-  border: 6px ridge rgb(10, 157, 210);
-  border-radius: 15px;
-  width: auto;
-  background-color: #174883;
-  background-image: url(assets/lined-paper-2.png);
-  color: yellow;
-  text-align: center;
-  font-weight: 600;
-  padding: 10px;
-  top: 8rem;
 }
 
 /* MULTIPLIER SHOP */
@@ -263,44 +172,54 @@ main {
   }
 
   /* BUTTONS ACTIVE PROPERTIES */
+  .tooltip .tooltiptext {
+    @include tooltipMultiplierDesign();
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
 
   #clickMultiplier {
     background-color: rgb(0, 155, 176);
     border-color: rgb(1, 85, 96);
+    .tooltip .tooltiptext {
+      margin-left: 15rem;
+    }
   }
   #elmoMultiplier {
     background-color: rgb(187, 29, 29);
     border-color: rgb(102, 16, 16);
     .tooltip .tooltiptext {
-      margin-left: -2rem;
+      margin-left: -10rem;
     }
   }
   #birdieMultiplier {
     background-color: rgb(200, 190, 15);
     border-color: yellow;
     .tooltip .tooltiptext {
-      margin-left: -10rem;
+      margin-left: -17rem;
     }
   }
   #oscarMultiplier {
     background-color: rgb(40, 127, 40);
     border-color: rgb(0, 80, 17);
     .tooltip .tooltiptext {
-      margin-left: -18rem;
+      margin-left: -24rem;
     }
   }
   #groverMultiplier {
     background-color: rgb(0, 0, 197);
     border-color: rgb(0, 0, 107);
     .tooltip .tooltiptext {
-      margin-left: -21rem;
+      margin-left: -31rem;
     }
   }
   #ernieMultiplier {
     background-color: rgb(230, 136, 21);
     border-color: rgb(134, 78, 10);
     .tooltip .tooltiptext {
-      margin-left: -27rem;
+      margin-left: -37rem;
     }
   }
 
@@ -330,14 +249,6 @@ main {
   }
 }
 
-.tooltip .tooltiptext {
-  @include tooltipMultiplierDesign();
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
 /* SCORE DISPLAY */
 
 .scoreDisplay {
@@ -358,51 +269,7 @@ main {
   white-space: nowrap;
 }
 
-/* AUTO CLICK SHOP SASS DESIGN */
-
-@mixin autoclickerBtns {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 130px;
-  height: 130px;
-  margin: auto 15px;
-  background-color: rgb(1, 23, 48);
-  background-image: url("https://www.transparenttextures.com/patterns/notebook-dark.png");
-  cursor: pointer;
-}
-
-@mixin costAutoclickerDesign {
-  position: relative;
-  font-family: "Merriweather-Regular.ttf", serif;
-  font-weight: 900;
-  color: white;
-  width: 100%;
-  margin: 0;
-  text-align: end;
-}
-
-@mixin imageAutoclickerDesign {
-  position: relative;
-  margin: auto;
-  max-height: 70px;
-  object-fit: cover;
-  justify-self: start;
-}
-
-@mixin countAutoclickerDesign {
-  position: absolute;
-  font-family: "Merriweather-Regular.ttf", serif;
-  font-weight: 900;
-  font-size: 2rem;
-  bottom: 0;
-  color: yellow;
-  width: 90%;
-  margin: 0;
-  text-align: end;
-}
-
-/* AUTO CLICK SHOP SASS DISPLAY */
+/* AUTO CLICK SHOP DISPLAY */
 
 .autoclickShop {
   border-top: 5px ridge;
@@ -418,9 +285,7 @@ main {
 
   button {
     @include autoclickerBtns();
-    .tooltip .tooltiptext {
-      margin-top: -50rem;
-    }
+
     img {
       position: relative;
       margin: auto;
@@ -451,11 +316,15 @@ main {
   }
 }
 
-#autoclickerElmoBtn {
-  .tooltip .tooltiptext {
-    margin-left: -21rem;
-    margin-top: -500px;
-  }
+/* TOOLTIP */
+.tooltip2 .tooltiptext2 {
+  @include tooltipMultiplierDesign;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.tooltip2:hover .tooltiptext2 {
+  visibility: visible;
 }
 
 /* FOOTER */
@@ -487,17 +356,7 @@ legend a {
   }
 }
 
-.cookieBtn {
-  animation: rotation 50s infinite linear; /* Propriétés animation regroupées */
-}
-
-#bonusBtn {
-  animation: rotation 50s infinite linear;
-}
-
-.btnDisabled {
-  background-color: rgb(1, 48, 48);
-}
+/* INTRO TUTO POP UP */
 
 .popUp {
   position: absolute;
@@ -590,7 +449,7 @@ label {
 }
 
 .btnDisabled {
-  background-color: red;
+  background-color: rgb(1, 48, 48);
   opacity: 0.5;
 }
 
@@ -602,14 +461,10 @@ label {
 
 /* Tooltip text */
 .tooltip2 .tooltiptext2 {
+  @include tooltipMultiplierDesign;
   visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
- 
+  top: -180px;
+
   /* Position the tooltip text - see examples below! */
   position: absolute;
   z-index: 1;
