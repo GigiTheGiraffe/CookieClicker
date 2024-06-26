@@ -70,7 +70,7 @@ function click() {
   updateScoreDisplay();
 }
 //Mettre le pseudo du joueur sur le html
-function showPseudo()  {
+function showPseudo() {
   if (pseudo.value.length > 0) {
     nomPatisserie.textContent = pseudo.value;
   }
